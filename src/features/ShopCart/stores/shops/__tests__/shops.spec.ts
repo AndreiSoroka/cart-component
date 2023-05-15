@@ -58,7 +58,6 @@ describe("Shops reducer", () => {
 
   it("should handle error when fetch is rejected without a message", async () => {
     const errorWithoutMessage = new Error();
-    delete errorWithoutMessage.message;
     fetchMock.mockRejectOnce(errorWithoutMessage);
 
     await store.dispatch(getShops());

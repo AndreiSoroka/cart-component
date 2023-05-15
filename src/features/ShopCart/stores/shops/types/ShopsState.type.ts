@@ -1,4 +1,4 @@
-import Shop from "@/features/ShopCart/stores/shops/types/Shop.type";
+import type Shop from "@/features/ShopCart/stores/shops/types/Shop.type";
 
 type ShopsState = {
   list: Shop[];

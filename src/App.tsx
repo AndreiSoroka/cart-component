@@ -1,6 +1,6 @@
 import "./App.css";
 import { Provider, useDispatch, useSelector } from "react-redux";
-import store, { AppDispatch, type RootState } from "./store";
+import store, { type AppDispatch, type RootState } from "./store";
 
 import cartSlice from "@/features/ShopCart/stores/cart/cart.slice";
 import { useEffect } from "react";

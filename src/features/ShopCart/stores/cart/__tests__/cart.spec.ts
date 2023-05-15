@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
-import store from "../../../../../store";
+import store from "@/store";
 import cartSlice from "../cart.slice";
 
 const MockItemCart1 = { id: '1', name: 'Test Item', shop: 'maxima' };

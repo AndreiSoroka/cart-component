@@ -1,6 +1,6 @@
 import { describe, expect, it, beforeEach } from '@jest/globals';
 import { getShops } from "../shops.slice";
-import store from '../../../../../store'
+import store from '@/store'
 import fetchMock from 'jest-fetch-mock'
 
 const MockShop1 = { id: '1', name: 'Shop 1', sortOrder: 3 };

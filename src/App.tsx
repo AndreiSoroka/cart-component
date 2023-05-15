@@ -2,9 +2,9 @@ import './App.css'
 import { Provider, useDispatch, useSelector } from 'react-redux'
 import store, { AppDispatch, type  RootState } from './store'
 
-import cartSlice from "./features/ShopCart/stores/cart/cart.slice";
+import cartSlice from "@/features/ShopCart/stores/cart/cart.slice";
 import { useEffect } from "react";
-import { getShops } from "./features/ShopCart/stores/shops/shops.slice";
+import { getShops } from "@/features/ShopCart/stores/shops/shops.slice";
 
 function TempComponentCart() {
   const list = useSelector((state: RootState) => state.cart.list)

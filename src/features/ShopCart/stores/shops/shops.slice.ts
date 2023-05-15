@@ -26,9 +26,7 @@ const shopsSlice = createSlice({
   name: "shops",
   initialState: initialState,
   reducers: {
-    setShops: (state, action: PayloadAction<ShopItem[]>) => {
-      state.list = action.payload;
-    },
+    noop: (state) => state, // store is small, so reducers is empty
   },
   extraReducers(builder) {
     builder

@@ -1,21 +1,16 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type ShopItem from "./types/ShopItem.type";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import type ShopsState from "@/features/ShopCart/stores/shops/types/ShopsState.type";
 import isShopItems from "./guards/isShopItems.guard";
+import api from "@/api";
 
-type State = {
-  list: ShopItem[];
-  isLoading: boolean;
-  error: string;
-};
-
-const initialState: State = {
+const initialState: ShopsState = {
   list: [],
   error: "",
   isLoading: false,
 };
 
 export const getShops = createAsyncThunk("shops/getShops", async () => {
-  const list = await fetch("/api/shops.json").then((data) => data.json());
+  const list = await api("/api/shops.json");
   if (!isShopItems(list)) {
     throw new Error("Something wrong");
   }

@@ -1,4 +1,4 @@
-import ShopItem from "../types/ShopItem.type";
+import ShopItem from "../types/Shop.type";
 
 export default function isShopItem(item: unknown): item is ShopItem {
   return (

@@ -1,1 +1,1 @@
-export * as CardItem from './CartItem.type'
+export * as CartItem from './CartItem.type'

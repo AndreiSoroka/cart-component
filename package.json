@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "test": "jest",
     "type-check": "tsc --noEmit",
-    "build-only": "vite build"
+    "build-only": "vite build; jest --coverage"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",

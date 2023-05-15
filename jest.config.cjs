@@ -1,4 +1,6 @@
 module.exports = {
+  coverageReporters: ["html"],
+  coverageDirectory: 'dist/coverage',
   transform: {
     "^.+\\.(t|j)sx?$": "@swc/jest",
   },

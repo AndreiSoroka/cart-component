@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { ShopItem } from "./types";
+import type ShopItem from "./types/ShopItem.type";
 import isShopItems from "./guards/isShopItems.guard";
 
 

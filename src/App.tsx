@@ -1,4 +1,3 @@
-import "./App.css";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import store, { type AppDispatch, type RootState } from "./store";
 

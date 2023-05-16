@@ -24,11 +24,14 @@ function makeModuleNameMapper() {
     const templatePath = val[0].replace('/*', '/$1');
     aliases[newKey] = path.join('<rootDir>', templatePath);
     return aliases;
-  }, {});
+  }, {".module\\.scss$": 'identity-obj-proxy',});
 }
 
 module.exports = {
+  testEnvironment: 'jest-environment-jsdom',
+  collectCoverage: true,
   coverageReporters: ["html"],
+  setupFilesAfterEnv: ['<rootDir>/src/jest-setup.ts'],
   coverageDirectory: 'dist/coverage',
   transform: {
     "^.+\\.(t|j)sx?$": "@swc/jest",

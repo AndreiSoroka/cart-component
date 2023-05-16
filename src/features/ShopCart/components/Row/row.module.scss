@@ -1,0 +1,15 @@
+.row {
+  display: block;
+  background: #fbfbfb;
+  padding: 11px 58px 10px;
+
+  &--odd-element {
+    background: transparent;
+  }
+
+  &__elements {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+}

@@ -7,7 +7,7 @@ const meta: Meta<typeof Input> = {
   tags: ["Components"],
   argTypes: { onChange: { action: "changed" } },
   parameters: { actions: { argTypesRegex: "^on.*" } },
-} satisfies Meta<typeof Input>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;

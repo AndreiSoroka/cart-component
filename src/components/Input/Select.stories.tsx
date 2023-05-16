@@ -1,6 +1,6 @@
 import Select from "./Select";
 import type { Meta } from "@storybook/react";
-import type Option from "@/components/Input/types/Option.type";
+import type Option from "./types/Option.type";
 import type { StoryObj } from "@storybook/react";
 
 const options: Option[] = [

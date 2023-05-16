@@ -1,4 +1,4 @@
-import type Option from "@/components/Input/types/Option.type";
+import type Option from "./Option.type";
 
 type SelectProps = {
   options: Option[];

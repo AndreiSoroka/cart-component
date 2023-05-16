@@ -1,6 +1,6 @@
 import React from "react";
-import type SelectProps from "@/components/Input/types/SelectProps.type";
-import InputStyle from "@/components/Input/input.module.scss";
+import type SelectProps from "./types/SelectProps.type";
+import InputStyle from "./input.module.scss";
 
 const Select = ({
   options,

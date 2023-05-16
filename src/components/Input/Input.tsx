@@ -1,6 +1,6 @@
 import React from "react";
 import InputStyle from "./input.module.scss";
-import type InputProps from "@/components/Input/types/InputProps.type";
+import type InputProps from "./types/InputProps.type";
 
 export const Input = ({
   value,

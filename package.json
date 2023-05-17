@@ -7,17 +7,18 @@
     "dev": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
-    "build-only": "vite build; jest --coverage --no-cache",
+    "build-only": "vite build; run-p build-jest build-storybook",
+    "build-jest": "jest --coverage --no-cache",
+    "build-storybook": "storybook build -o ./dist/storybook",
+    "type-check": "tsc --noEmit",
+    "commit-check": "run-p type-check test prettier lint",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "yarn lint --fix",
     "prettier": "prettier --check ./src",
     "prettier:fix": "prettier --write ./src",
     "test": "jest",
-    "type-check": "tsc --noEmit",
-    "check-commit": "run-p type-check test prettier lint",
     "prepare": "husky install",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "storybook dev -p 6006"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",

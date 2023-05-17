@@ -10,8 +10,8 @@ export const Row = ({
 }: RowProps) => {
   const rowStyles =
     elementKey % 2
-      ? RowStyle.row
-      : `${RowStyle.row} ${RowStyle["row--odd-element"]}`;
+      ? `${RowStyle.row} ${RowStyle["row--odd-element"]}`
+      : RowStyle.row;
 
   return (
     <div className={rowStyles}>

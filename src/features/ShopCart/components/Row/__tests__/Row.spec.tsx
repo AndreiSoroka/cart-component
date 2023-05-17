@@ -31,7 +31,7 @@ describe("Row", () => {
     expect(element?.classList.contains(RowStyle.row)).toBeTruthy();
     expect(
       element?.classList.contains(RowStyle["row--odd-element"])
-    ).toBeTruthy();
+    ).toBeFalsy();
   });
 
   it("has correct style for even elementKey", () => {
@@ -41,6 +41,6 @@ describe("Row", () => {
     expect(element?.classList.contains(RowStyle.row)).toBeTruthy();
     expect(
       element?.classList.contains(RowStyle["row--odd-element"])
-    ).toBeFalsy();
+    ).toBeTruthy();
   });
 });

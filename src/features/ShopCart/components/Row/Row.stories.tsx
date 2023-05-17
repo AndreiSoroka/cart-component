@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Row } from "./Row";
 
 const meta: Meta<typeof Row> = {
-  title: "Components/Row",
+  title: "Feature/ShopCart/Row",
   component: Row,
   argTypes: {
     onRemove: { action: "removed" },
@@ -19,5 +19,13 @@ export const Default: Story = {
     product: "Product Name",
     market: "Market Name",
     elementKey: 0,
+  },
+};
+
+export const NextRow: Story = {
+  args: {
+    product: "Product Name",
+    market: "Market Name",
+    elementKey: 1,
   },
 };

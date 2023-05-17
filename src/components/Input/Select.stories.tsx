@@ -1,4 +1,4 @@
-import Select from "./Select";
+import { Select } from "./Select";
 import type { Meta } from "@storybook/react";
 import type Option from "./types/Option.type";
 import type { StoryObj } from "@storybook/react";

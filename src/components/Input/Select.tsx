@@ -2,7 +2,7 @@ import React from "react";
 import type SelectProps from "./types/SelectProps.type";
 import InputStyle from "./input.module.scss";
 
-const Select = ({
+export const Select = ({
   options,
   defaultValue,
   onChange,
@@ -33,5 +33,3 @@ const Select = ({
     </select>
   );
 };
-
-export default Select;

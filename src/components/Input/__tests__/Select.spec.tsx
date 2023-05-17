@@ -1,6 +1,6 @@
 import { describe, expect, it } from "@jest/globals";
 import { fireEvent, render } from "@testing-library/react";
-import Select from "../Select";
+import { Select } from "../Select";
 import type SelectProps from "../types/SelectProps.type";
 
 describe("Select", () => {

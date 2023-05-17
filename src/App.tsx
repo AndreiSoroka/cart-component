@@ -1,12 +1,11 @@
 import { Provider } from "react-redux";
 import store from "./store";
-
-import { ShopCart } from "@/features/ShopCart/ShopCart";
+import DefaultPage from "@/pages/DefaultPage/DefaultPage";
 
 function App() {
   return (
     <Provider store={store}>
-      <ShopCart />
+      <DefaultPage />
     </Provider>
   );
 }

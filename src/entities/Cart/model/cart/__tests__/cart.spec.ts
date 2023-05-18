@@ -1,9 +1,19 @@
 import { describe, expect, it } from "@jest/globals";
-import store from "@/store";
+import { setupStore } from "@/store";
 import cartSlice from "../cart.slice";
+import type CartItem from "@/entities/Cart/types/Cart.type";
 
-const MockItemCart1 = { id: "1", name: "Test Item", shop: "maxima" };
-const MockItemCart2 = { id: "2", name: "Test Item 2", shop: "rimi" };
+const store = setupStore();
+const MockItemCart1: CartItem = {
+  id: "1",
+  productName: "Test Item",
+  shopId: "maxima",
+};
+const MockItemCart2: CartItem = {
+  id: "2",
+  productName: "Test Item 2",
+  shopId: "rimi",
+};
 
 describe("Cart reducer", () => {
   it("should handle initial state", () => {

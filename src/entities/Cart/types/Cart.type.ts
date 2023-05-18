@@ -1,7 +1,7 @@
 type CartItem = {
   id: string;
-  name: string;
-  shop: string;
+  productName: string;
+  shopId: string;
 };
 
 export default CartItem;

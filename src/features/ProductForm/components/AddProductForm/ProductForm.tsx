@@ -7,7 +7,7 @@ import { useCartStore } from "@/entities/Cart";
 
 const ProductForm = () => {
   const [productName, setProductName] = useState("");
-  const [storeId, setStoreId] = useState("");
+  const [shopId, setShopId] = useState("");
 
   const { isLoading, list: shopsList } = useShopsStore();
   const { addItemToCart } = useCartStore();
@@ -20,8 +20,8 @@ const ProductForm = () => {
     event.preventDefault();
     addItemToCart({
       id: Math.random().toString(),
-      name: productName,
-      shop: storeId,
+      productName: productName,
+      shopId,
     });
   };
 
@@ -34,8 +34,8 @@ const ProductForm = () => {
       <Input value={productName} onChange={setProductName} placeholder="123" />
       <Select
         options={options}
-        defaultValue={storeId}
-        onChange={setStoreId}
+        defaultValue={shopId}
+        onChange={setShopId}
         placeholder="Select shop"
       />
       <Button label="Add" />

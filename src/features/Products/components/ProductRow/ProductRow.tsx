@@ -1,13 +1,13 @@
 import RowStyle from "./productRow.module.scss";
-import type RowProps from "@/features/Products/components/ProductRow/types/ProductRowProps.type";
+import type ProductRowProps from "@/features/Products/components/ProductRow/types/ProductRowProps.type";
 import { RemoveLink } from "@/shared/components/RemoveLink/RemoveLink";
 
-export const ProductRow = ({
+const ProductRow = ({
   product,
-  market,
+  shopName,
   onRemove,
   elementKey = 0,
-}: RowProps) => {
+}: ProductRowProps) => {
   const rowStyles =
     elementKey % 2
       ? `${RowStyle.row} ${RowStyle["row--odd-element"]}`
@@ -17,7 +17,7 @@ export const ProductRow = ({
     <div className={rowStyles}>
       <div className={RowStyle.row__elements}>
         <div>{product}</div>
-        <div>{market}</div>
+        <div>{shopName}</div>
         <div>
           <RemoveLink label="Delete" onClick={onRemove} />
         </div>
@@ -25,3 +25,5 @@ export const ProductRow = ({
     </div>
   );
 };
+
+export default ProductRow;

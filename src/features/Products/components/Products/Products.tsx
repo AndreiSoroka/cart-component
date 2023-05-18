@@ -1,20 +1,23 @@
 import { useCartStore } from "@/entities/Cart";
-// todo rename
-import { ProductRow } from "@/features/Products/components/ProductRow/ProductRow";
+import { useShopsStore } from "@/entities/Shops";
+import { useMemo } from "react";
+import createMapFromShops from "@/features/Products/lib/helpers/createMapFromShops";
+import ProductRow from "@/features/Products/components/ProductRow/ProductRow";
 
 const Products = () => {
-  // todo show market from shops
-  // todo rename market to shopName
-  const { list, removeItemFromCart } = useCartStore();
+  const { list: products, removeItemFromCart } = useCartStore();
+  const { list: shops } = useShopsStore();
+
+  const shopsMap = useMemo(() => createMapFromShops(shops), [shops]);
 
   return (
     <>
-      {list.map((item, index) => (
+      {products.map((item, index) => (
         <ProductRow
           key={item.id}
           elementKey={index}
-          market={item.shop}
-          product={item.name}
+          shopName={shopsMap[item.shopId] || "..."}
+          product={item.productName}
           onRemove={() => removeItemFromCart(item.id)}
         />
       ))}

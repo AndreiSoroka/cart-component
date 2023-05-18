@@ -1,9 +1,10 @@
 import { describe, expect, it, beforeEach } from "@jest/globals";
 import shopsSlice from "../shops.slice";
 import { getShops } from "@/entities/Shops/api/getShops.api";
-import store from "@/store";
+import { setupStore } from "@/store";
 import fetchMock from "jest-fetch-mock";
 
+const store = setupStore();
 const MockShop1 = { id: "1", name: "Shop 1", sortOrder: 1 };
 const MockShop2 = { id: "2", name: "Shop 2", sortOrder: 2 };
 const MockShop3 = { id: "3", name: "Shop 3", sortOrder: 3 };

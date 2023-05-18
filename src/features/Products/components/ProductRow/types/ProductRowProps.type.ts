@@ -1,8 +1,8 @@
-type RowProps = {
+type ProductRowProps = {
   product: string;
-  market: string;
+  shopName: string;
   onRemove?: () => void;
   elementKey?: number;
 };
 
-export default RowProps;
+export default ProductRowProps;

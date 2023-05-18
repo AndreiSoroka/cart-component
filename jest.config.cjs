@@ -33,6 +33,12 @@ module.exports = {
   coverageReporters: ["html"],
   setupFilesAfterEnv: ['<rootDir>/src/jest-setup.ts'],
   coverageDirectory: 'dist/coverage',
+  collectCoverageFrom: [
+    'src/*/**/*.{ts,tsx}',
+    '!**/node_modules/**',
+    '!**/vendor/**',
+    '!**/*.stories.*',
+  ],
   transform: {
     "^.+\\.(t|j)sx?$": "@swc/jest",
   },

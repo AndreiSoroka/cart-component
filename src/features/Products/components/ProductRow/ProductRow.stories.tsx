@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ProductRow } from "./ProductRow";
+import ProductRow from "./ProductRow";
 
 const meta: Meta<typeof ProductRow> = {
   title: "Feature/ShopCart/Row",
@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     product: "Product Name",
-    market: "Market Name",
+    shopName: "Market Name",
     elementKey: 0,
   },
 };
@@ -25,7 +25,7 @@ export const Default: Story = {
 export const NextRow: Story = {
   args: {
     product: "Product Name",
-    market: "Market Name",
+    shopName: "Market Name",
     elementKey: 1,
   },
 };

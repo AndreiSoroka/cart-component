@@ -1,10 +1,10 @@
 import { Provider } from "react-redux";
-import store from "./store";
+import { setupStore } from "./store";
 import DefaultPage from "@/pages/DefaultPage/DefaultPage";
 
 function App() {
   return (
-    <Provider store={store}>
+    <Provider store={setupStore()}>
       <DefaultPage />
     </Provider>
   );

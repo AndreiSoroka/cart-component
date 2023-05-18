@@ -3,7 +3,11 @@ import type RemoveLinkProps from "./types/RemoveLinkProps.type";
 
 export const RemoveLink = ({ label, onClick }: RemoveLinkProps) => {
   return (
-    <span className={RemoveLinkStyle["remove-link"]} onClick={onClick}>
+    <span
+      data-test-el="remove-link"
+      className={RemoveLinkStyle["remove-link"]}
+      onClick={onClick}
+    >
       {label}
     </span>
   );

@@ -8,5 +8,6 @@ export const getShops = createAsyncThunk("shops/getShops", async () => {
   if (!isShopItems(list)) {
     throw new Error("Something wrong");
   }
+  // todo id is u
   return sortShopsFromApi(list);
 });

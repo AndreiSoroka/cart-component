@@ -1,5 +1,5 @@
 import { Products } from "@/features/Products";
-import { renderWithProviders } from "@/store.renderWithProviders";
+import { renderWithProviders } from "@/shared/config/jest/renderWithProviders";
 import { fireEvent } from "@testing-library/react";
 
 describe("Products", () => {

@@ -1,4 +1,4 @@
-import { renderWithProviders } from "@/store.renderWithProviders";
+import { renderWithProviders } from "@/shared/config/jest/renderWithProviders";
 import ShopCart from "@/widgets/ShopCart/components/ShopCart";
 
 describe("ShopCart", () => {

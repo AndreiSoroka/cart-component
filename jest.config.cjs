@@ -31,7 +31,7 @@ module.exports = {
   testEnvironment: 'jest-environment-jsdom',
   collectCoverage: true,
   coverageReporters: ["html"],
-  setupFilesAfterEnv: ['<rootDir>/src/jest-setup.ts'],
+  setupFilesAfterEnv: ['<rootDir>/src/shared/config/jest/jest-setup.ts'],
   coverageDirectory: 'dist/coverage',
   collectCoverageFrom: [
     'src/*/**/*.{ts,tsx}',

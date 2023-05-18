@@ -15,9 +15,7 @@ const useShopsStore = () => {
       return;
     }
     dispatch(getShops());
-    // todo
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  });
 
   return { ...shops };
 };

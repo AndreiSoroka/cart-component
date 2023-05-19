@@ -1,4 +1,4 @@
-name: "Build App & Deploy to Github Pages"
+name: "Check Commit"
 
 on:
   pull_request:
@@ -22,5 +22,17 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Run lint
+      - name: Check commit
         run: yarn commit-check
+
+  sendMessage:
+    needs:
+      - check_commit
+    name: Send message
+    runs-on: ubuntu-22.04
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: mshick/add-pr-comment@v2
+        with:
+          message: Ready to merge

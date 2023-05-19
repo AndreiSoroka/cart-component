@@ -1,4 +1,4 @@
-name: "Build App & Deploy"
+name: "Build & Deploy"
 
 on:
   push:
@@ -25,8 +25,12 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Build
-        env:
-          FTP_USER: ${{ secrets.FTP_USER }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          FTP_HOST: ${{ secrets.FTP_HOST }}
         run: yarn build
+
+      - name: 📂 Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: /dist

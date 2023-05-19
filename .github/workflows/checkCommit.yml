@@ -1,0 +1,26 @@
+name: "Build App & Deploy to Github Pages"
+
+on:
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+
+jobs:
+  check_commit:
+    name: check_commit
+    concurrency:
+      group: check_commit
+      cancel-in-progress: true
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run lint
+        run: yarn commit-check

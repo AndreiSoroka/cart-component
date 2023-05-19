@@ -1,0 +1,32 @@
+name: "Build App & Deploy"
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch: { }
+
+jobs:
+  check_commit:
+    name: build and deploy
+    concurrency:
+      group: deploy
+      cancel-in-progress: false
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        env:
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+        run: yarn build

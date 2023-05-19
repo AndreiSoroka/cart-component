@@ -17,6 +17,9 @@ RUN yarn type-check
 FROM builder-src AS check-app__lint
 RUN yarn lint
 
+FROM builder-src AS check-app__prettier
+RUN yarn prittier
+
 FROM builder-src AS builder-dist
 RUN yarn build-only
 
@@ -26,5 +29,6 @@ FROM builder-dist AS devserver
 COPY --from=check-app__test /app/package.json /home/test-package.json
 COPY --from=check-app__lint /app/package.json /home/lint-package.json
 COPY --from=check-app__type-check /app/package.json /home/type-check-package.json
+COPY --from=check-app__type-app__prettier /app/package.json /home/prettier-package.json
 
 CMD ["yarn", "preview", "--", "--host", "--port", "80"]

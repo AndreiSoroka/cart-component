@@ -5,6 +5,7 @@ import { Button } from "@/shared/components/Button/Button";
 import { useShopsStore } from "@/entities/Shops";
 import { useCartStore } from "@/entities/Cart";
 import environmentMeta from "@/shared/const/environment.meta";
+import ProductFormStyle from "./productForm.module.scss";
 
 const ProductForm = () => {
   const [productName, setProductName] = useState("");
@@ -32,7 +33,7 @@ const ProductForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={ProductFormStyle["product-form"]} onSubmit={handleSubmit}>
       <Input
         value={productName}
         onChange={setProductName}

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { Input } from "@/shared/components/Input/Input";
 import { Select } from "@/shared/components/Input/Select";
 import { Button } from "@/shared/components/Button/Button";
@@ -8,6 +8,7 @@ import environmentMeta from "@/shared/const/environment.meta";
 import ProductFormStyle from "./productForm.module.scss";
 
 const ProductForm = () => {
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const [productName, setProductName] = useState("");
   const [shopId, setShopId] = useState("");
 
@@ -30,6 +31,8 @@ const ProductForm = () => {
       productName: productName,
       shopId,
     });
+    inputRef.current?.focus();
+    inputRef.current?.select();
   };
 
   return (
@@ -43,6 +46,7 @@ const ProductForm = () => {
           value={productName}
           onChange={setProductName}
           placeholder="Name"
+          ref={inputRef}
         />
         <Select
           options={options}

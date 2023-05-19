@@ -1,6 +1,12 @@
 .product-form {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  flex-wrap: wrap;
+  &__title {
+    margin: 15px 0 20px;
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
 }

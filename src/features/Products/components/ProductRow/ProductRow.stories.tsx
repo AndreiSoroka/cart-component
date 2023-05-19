@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import ProductRow from "./ProductRow";
 
 const meta: Meta<typeof ProductRow> = {
-  title: "Feature/ShopCart/Row",
+  title: "Features/Products/ProductRow",
   component: ProductRow,
   argTypes: {
     onRemove: { action: "removed" },

@@ -1,8 +1,9 @@
 import { ShopCart } from "@/widgets/ShopCart";
+import defaultPageStyles from "./defaultPage.module.scss";
 
 const DefaultPage = () => {
   return (
-    <div>
+    <div className={defaultPageStyles["default-page"]}>
       <ShopCart />
     </div>
   );

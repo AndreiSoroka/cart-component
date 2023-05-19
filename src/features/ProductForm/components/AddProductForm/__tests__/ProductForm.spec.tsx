@@ -58,12 +58,7 @@ describe("ProductForm", () => {
       },
     });
 
-    // const $input = container.querySelector("input");
-    // const $select = container.querySelector("select");
     const $button = container.querySelector("button");
-
-    // expect($input).toBeFalsy();
-    // expect($select.textContent).toBeFalsy();
     expect($button).toBeDisabled();
   });
 });

@@ -33,20 +33,26 @@ const ProductForm = () => {
   };
 
   return (
-    <form className={ProductFormStyle["product-form"]} onSubmit={handleSubmit}>
-      <Input
-        value={productName}
-        onChange={setProductName}
-        placeholder="Type product"
-      />
-      <Select
-        options={options}
-        defaultValue={shopId}
-        onChange={setShopId}
-        placeholder={isDisabled ? "Loading shops..." : "Select shop"}
-      />
-      <Button disabled={isDisabled} label="Add" />
-    </form>
+    <div className={ProductFormStyle["product-form"]}>
+      <h2 className={ProductFormStyle["product-form__title"]}>Add to cart:</h2>
+      <form
+        className={ProductFormStyle["product-form__form"]}
+        onSubmit={handleSubmit}
+      >
+        <Input
+          value={productName}
+          onChange={setProductName}
+          placeholder="Name"
+        />
+        <Select
+          options={options}
+          defaultValue={shopId}
+          onChange={setShopId}
+          placeholder={isDisabled ? "Loading shops..." : "Select shop"}
+        />
+        <Button disabled={isDisabled} label="Add" />
+      </form>
+    </div>
   );
 };
 

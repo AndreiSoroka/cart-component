@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
 import type { Meta, StoryFn } from "@storybook/react";
-import ProductForm from "./ProductForm";
+import Products from "./Products";
 import { setupStore } from "@/store";
 
 const mockShopState = {
@@ -12,13 +12,17 @@ const mockShopState = {
   ],
   error: "",
 };
+
 const mockCartState = {
-  list: [],
+  list: [
+    { id: "1", productName: "Product 1", shopId: "1" },
+    { id: "2", productName: "Product 2", shopId: "2" },
+  ],
 };
 
-const meta: Meta<typeof ProductForm> = {
-  title: "Features/ProductForm/ProductForm",
-  component: ProductForm,
+const meta: Meta<typeof Products> = {
+  title: "Features/Products/Products",
+  component: Products,
   parameters: { actions: { argTypesRegex: "^on.*" } },
 };
 
@@ -32,20 +36,33 @@ export const Default: StoryFn = (args) => {
 
   return (
     <Provider store={store}>
-      <ProductForm {...args} />
+      <Products {...args} />
     </Provider>
   );
 };
 
-export const Loading: StoryFn = (args) => {
+export const EmptyCart: StoryFn = (args) => {
   const store = setupStore({
-    shops: { ...mockShopState, isLoading: true },
+    shops: mockShopState,
+    cart: { list: [] },
+  });
+
+  return (
+    <Provider store={store}>
+      <Products {...args} />
+    </Provider>
+  );
+};
+
+export const EmptyShopAndLoading: StoryFn = (args) => {
+  const store = setupStore({
+    shops: { ...mockShopState, isLoading: true, list: [] },
     cart: mockCartState,
   });
 
   return (
     <Provider store={store}>
-      <ProductForm {...args} />
+      <Products {...args} />
     </Provider>
   );
 };

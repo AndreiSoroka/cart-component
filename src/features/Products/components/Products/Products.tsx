@@ -11,7 +11,7 @@ const Products = () => {
   const shopsMap = useMemo(() => createMapFromShops(shops), [shops]);
 
   return (
-    <>
+    <div>
       {products.map((item, index) => (
         <ProductRow
           key={item.id}
@@ -21,7 +21,7 @@ const Products = () => {
           onRemove={() => removeItemFromCart(item.id)}
         />
       ))}
-    </>
+    </div>
   );
 };
 export default Products;

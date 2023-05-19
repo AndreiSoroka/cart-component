@@ -1,4 +1,5 @@
 .row {
+  container: productRow / inline-size;
   display: block;
   background: #fbfbfb;
   padding: 11px 58px 10px;
@@ -8,8 +9,21 @@
   }
 
   &__elements {
+    max-width: 583px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 260fr 202fr 101px;
     gap: 10px;
+
+    @container productRow (width < 350px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__actions {
+    text-align: right;
+
+    @container productRow (width < 350px) {
+      text-align: left;
+    }
   }
 }

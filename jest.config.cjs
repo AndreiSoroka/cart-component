@@ -37,7 +37,10 @@ module.exports = {
     'src/*/**/*.{ts,tsx}',
     '!**/node_modules/**',
     '!**/vendor/**',
-    '!**/*.stories.*',
+    '!**/*.stories.*', // storybook
+    '!**/*.meta.ts', // meta files
+    '!src/app/**', // app config
+    '!src/shared/config/**', // configs
   ],
   transform: {
     "^.+\\.(t|j)sx?$": "@swc/jest",

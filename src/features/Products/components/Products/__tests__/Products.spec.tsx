@@ -21,6 +21,7 @@ describe("Products", () => {
             },
           ],
           error: "",
+          isLoaded: true,
         },
         cart: {
           list: [
@@ -57,6 +58,7 @@ describe("Products", () => {
             },
           ],
           error: "",
+          isLoaded: true,
         },
         cart: {
           list: [

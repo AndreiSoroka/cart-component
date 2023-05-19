@@ -6,6 +6,7 @@ const initialState: ShopsState = {
   list: [],
   error: "",
   isLoading: false,
+  isLoaded: false,
 };
 const shopsSlice = createSlice({
   name: "shops",
@@ -21,11 +22,13 @@ const shopsSlice = createSlice({
       })
       .addCase(getShops.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.isLoaded = true;
         state.error = "";
         state.list = [...action.payload];
       })
       .addCase(getShops.rejected, (state, action) => {
         state.isLoading = false;
+        state.isLoaded = true;
         state.error = action?.error?.message || "Something wrong";
       });
   },

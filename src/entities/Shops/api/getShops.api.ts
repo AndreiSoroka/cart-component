@@ -4,6 +4,7 @@ import isShopItems from "@/entities/Shops/guards/isShopItems.guard";
 import sortShopsFromApi from "@/entities/Shops/lib/helpers/sortShopsFromApi";
 
 export const getShops = createAsyncThunk("shops/getShops", async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const list = await api("/api/shops.json");
   if (!isShopItems(list)) {
     throw new Error("Something wrong");

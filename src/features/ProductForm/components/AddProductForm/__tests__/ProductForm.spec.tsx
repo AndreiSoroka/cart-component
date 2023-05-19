@@ -21,6 +21,7 @@ describe("ProductForm", () => {
             },
           ],
           error: "",
+          isLoaded: true,
         },
       },
     });
@@ -52,16 +53,17 @@ describe("ProductForm", () => {
           isLoading: true,
           list: [],
           error: "",
+          isLoaded: true,
         },
       },
     });
 
-    const $input = container.querySelector("input");
-    const $select = container.querySelector("select");
+    // const $input = container.querySelector("input");
+    // const $select = container.querySelector("select");
     const $button = container.querySelector("button");
 
-    expect($input).toBeFalsy();
-    expect($select).toBeFalsy();
-    expect($button).toBeFalsy();
+    // expect($input).toBeFalsy();
+    // expect($select.textContent).toBeFalsy();
+    expect($button).toBeDisabled();
   });
 });

@@ -4,6 +4,7 @@ type ShopsState = {
   list: Shop[];
   isLoading: boolean;
   error: string;
+  isLoaded: boolean;
 };
 
 export default ShopsState;

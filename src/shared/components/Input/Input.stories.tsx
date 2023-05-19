@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Input } from "./Input";
 
 const meta: Meta<typeof Input> = {
-  title: "Shared/Components/Input",
+  title: "Shared/Input/Input",
   component: Input,
   tags: ["Components"],
   argTypes: { onChange: { action: "changed" } },

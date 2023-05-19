@@ -5,8 +5,8 @@ type CardProps = {
   children?: React.ReactNode;
 };
 
-const Card = ({ children }: CardProps) => {
-  return <div className={CartStyle.card}>{children}</div>;
+const CardContent = ({ children }: CardProps) => {
+  return <div className={CartStyle["card-content"]}>{children}</div>;
 };
 
-export default Card;
+export default CardContent;

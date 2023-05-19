@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { RemoveLink } from "./RemoveLink";
 
 const meta: Meta<typeof RemoveLink> = {
-  title: "Shared/ Components/RemoveLink",
+  title: "Shared/RemoveLink",
   component: RemoveLink,
   tags: ["Components"],
   argTypes: { onClick: { action: "clicked" } },

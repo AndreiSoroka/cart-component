@@ -1,3 +1,4 @@
+import shopCartStyles from "./shopCart.module.scss";
 import { ProductForm } from "@/features/ProductForm";
 
 import { Products } from "@/features/Products";
@@ -7,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { getShops } from "@/entities/Shops/api/getShops.api";
 import type { AppDispatch } from "@/store";
 import environmentMeta from "@/shared/const/environment.meta";
+import CardContent from "@/shared/components/Card/CardContent";
 
 const ShopCart = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -17,10 +19,14 @@ const ShopCart = () => {
   }, [dispatch]);
 
   return (
-    <Card>
-      <ProductForm />
-      <Products />
-    </Card>
+    <div className={shopCartStyles["shop-cart"]}>
+      <Card>
+        <CardContent>
+          <ProductForm />
+        </CardContent>
+        <Products />
+      </Card>
+    </div>
   );
 };
 

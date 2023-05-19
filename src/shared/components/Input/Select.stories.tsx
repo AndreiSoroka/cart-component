@@ -10,7 +10,7 @@ const options: Option[] = [
 ];
 
 const meta: Meta<typeof Select> = {
-  title: "Shared/Components/Select",
+  title: "Shared/Input/Select",
   component: Select,
   tags: ["Components"],
   argTypes: {

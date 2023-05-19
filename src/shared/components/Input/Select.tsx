@@ -6,6 +6,7 @@ export const Select = ({
   options,
   defaultValue,
   onChange,
+  required = false,
   placeholder,
 }: SelectProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -23,6 +24,7 @@ export const Select = ({
       value={defaultValue}
       onChange={handleChange}
       className={`${InputStyle.input} ${InputStyle.input__select}`}
+      required={required}
     >
       {placeholderOption}
       {options.map((option) => (

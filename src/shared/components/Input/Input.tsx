@@ -5,7 +5,14 @@ import type InputProps from "./types/InputProps.type";
 
 export const Input = forwardRef(
   (
-    { value, onChange, placeholder, type = "text" }: InputProps,
+    {
+      value,
+      onChange,
+      placeholder,
+      required = false,
+      maxlength = 255,
+      type = "text",
+    }: InputProps,
     ref: ForwardedRef<HTMLInputElement>
   ) => {
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,6 +27,8 @@ export const Input = forwardRef(
         onChange={handleInputChange}
         placeholder={placeholder}
         className={InputStyle.input}
+        required={required}
+        maxLength={maxlength}
       />
     );
   }

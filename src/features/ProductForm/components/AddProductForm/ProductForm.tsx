@@ -47,12 +47,15 @@ const ProductForm = () => {
           onChange={setProductName}
           placeholder="Name"
           ref={inputRef}
+          maxlength={30}
+          required
         />
         <Select
           options={options}
           defaultValue={shopId}
           onChange={setShopId}
           placeholder={isDisabled ? "Loading shops..." : "Select shop"}
+          required
         />
         <Button disabled={isDisabled} label="Add" />
       </form>

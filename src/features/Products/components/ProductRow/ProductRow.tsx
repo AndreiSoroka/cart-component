@@ -16,8 +16,8 @@ const ProductRow = ({
   return (
     <div className={rowStyles}>
       <div className={RowStyle.row__elements}>
-        <div>{product}</div>
-        <div>{shopName}</div>
+        <div className={RowStyle.row__text}>{product}</div>
+        <div className={RowStyle.row__text}>{shopName}</div>
         <div className={RowStyle.row__actions}>
           <RemoveLink label="Delete" onClick={onRemove} />
         </div>

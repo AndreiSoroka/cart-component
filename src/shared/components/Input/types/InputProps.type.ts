@@ -1,8 +1,9 @@
-type InputProps = {
+import type CommonInputProps from "@/shared/components/Input/types/CommonInputProps.type";
+
+type InputProps = CommonInputProps & {
   value: string;
-  onChange: (value: string) => void;
-  placeholder?: string;
   type?: string;
+  maxlength?: number;
 };
 
 export default InputProps;

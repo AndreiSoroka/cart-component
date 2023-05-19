@@ -13,7 +13,7 @@ import CardContent from "@/shared/components/Card/CardContent";
 const ShopCart = () => {
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
-    if (environmentMeta.CLIENT) {
+    if (environmentMeta.CLIENT && !environmentMeta.STORYBOOK) {
       dispatch(getShops());
     }
   }, [dispatch]);

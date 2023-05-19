@@ -6,6 +6,7 @@ jest.mock("@/shared/const/environment.meta", () => ({
   CLIENT: true,
   PROD: true,
   MODE: "production",
+  STORYBOOK: false,
 }));
 
 global.React = React;

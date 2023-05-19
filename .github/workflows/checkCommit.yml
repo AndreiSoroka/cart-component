@@ -1,0 +1,38 @@
+name: "Check Commit"
+
+on:
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+
+jobs:
+  check_commit:
+    name: check_commit
+    concurrency:
+      group: check_commit
+      cancel-in-progress: true
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Check commit
+        run: yarn commit-check
+
+  sendMessage:
+    needs:
+      - check_commit
+    name: Send message
+    runs-on: ubuntu-22.04
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: mshick/add-pr-comment@v2
+        with:
+          message: Ready to merge

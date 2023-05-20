@@ -4,8 +4,8 @@ import { Select } from "@/shared/components/Input/Select";
 import { Button } from "@/shared/components/Button/Button";
 import { useShopsStore } from "@/entities/Shops";
 import { useCartStore } from "@/entities/Cart";
-import environmentMeta from "@/shared/const/environment.meta";
 import ProductFormStyle from "./productForm.module.scss";
+import { nanoid } from "@reduxjs/toolkit";
 
 const ProductForm = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -21,13 +21,13 @@ const ProductForm = () => {
   }));
 
   const isDisabled = useMemo(() => {
-    return !isLoaded || isLoading || environmentMeta.SSR;
+    return !isLoaded || isLoading;
   }, [isLoaded, isLoading]);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     addItemToCart({
-      id: Math.random().toString(),
+      id: nanoid(),
       productName: productName,
       shopId,
     });

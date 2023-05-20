@@ -30,9 +30,17 @@ function makeModuleNameMapper() {
 module.exports = {
   testEnvironment: 'jest-environment-jsdom',
   collectCoverage: true,
-  coverageReporters: ["html"],
+  coverageReporters: ["text"],
   setupFilesAfterEnv: ['<rootDir>/src/shared/config/jest/jest-setup.ts'],
   coverageDirectory: 'dist/coverage',
+  coverageThreshold: {
+    global: {
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100,
+    },
+  },
   collectCoverageFrom: [
     'src/*/**/*.{ts,tsx}',
     '!**/node_modules/**',

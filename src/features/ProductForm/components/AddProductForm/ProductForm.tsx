@@ -5,6 +5,7 @@ import { Button } from "@/shared/components/Button/Button";
 import { useShopsStore } from "@/entities/Shops";
 import { useCartStore } from "@/entities/Cart";
 import ProductFormStyle from "./productForm.module.scss";
+import { nanoid } from "@reduxjs/toolkit";
 
 const ProductForm = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -26,7 +27,7 @@ const ProductForm = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     addItemToCart({
-      id: Math.random().toString(),
+      id: nanoid(),
       productName: productName,
       shopId,
     });

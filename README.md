@@ -37,8 +37,9 @@ structure. But I decided to imagine it as a large project.
 
 P.P.S. The architecture of a project depends on the team, so this is a hypothetical architecture.
 
-P.P.P.S. In fact, I'm not a React developer. Moreover, I've put together this architecture as part of the test
-assignment. So, this is a double hypothesis.
+P.P.P.S. In fact, I'm not a React developer.
+Moreover, I did architecture for a limited time.
+So, this is a double hypothesis.
 
 ## Description of the Test assignment
 

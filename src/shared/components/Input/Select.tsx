@@ -8,6 +8,7 @@ export const Select = ({
   onChange,
   required = false,
   placeholder,
+  dataTestId,
 }: SelectProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     onChange(event.target.value);
@@ -25,6 +26,7 @@ export const Select = ({
       onChange={handleChange}
       className={`${InputStyle.input} ${InputStyle.input__select}`}
       required={required}
+      data-testid={dataTestId}
     >
       {placeholderOption}
       {options.map((option) => (

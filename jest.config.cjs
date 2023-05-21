@@ -53,5 +53,9 @@ module.exports = {
   transform: {
     "^.+\\.(t|j)sx?$": "@swc/jest",
   },
+
+  testPathIgnorePatterns: [
+    "\\.e2e\\.spec\\.ts$", // e2e tests
+  ],
   'moduleNameMapper': makeModuleNameMapper()
 };

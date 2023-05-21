@@ -3,7 +3,7 @@ import projectInfoStyles from "./projectInfo.module.scss";
 const LINK_LIST = [
   {
     name: "Github",
-    url: "https://github.com/AndreiSoroka/cart-component/tree/master/src",
+    url: "https://github.com/AndreiSoroka/cart-component/tree/master",
   },
   {
     name: "Storybook",

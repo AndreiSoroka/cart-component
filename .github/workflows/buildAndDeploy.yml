@@ -9,7 +9,7 @@ on:
 
 jobs:
   build_deploy:
-    name: build and deploy
+    name: Build and Deploy
     concurrency:
       group: deploy
       cancel-in-progress: false
@@ -51,7 +51,7 @@ jobs:
 #        if: github.ref == 'refs/heads/master'
         run: |
           curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE }}/purge_cache" \
-          -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_CACHE_PURE_TOKEN }} \
+          -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_CACHE_PURE_TOKEN }}" \
           -H "Content-Type: application/json" \
           --data '{"purge_everything":true}';
 

@@ -4,12 +4,12 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
-  color: #f54436;
+  color: var(--link-remove);
   user-select: none;
   &:hover {
-    color: #d7362a;
+    color: var(--link-remove-hover);
   }
   &:active {
-    color: #c0281b;
+    color: var(--link-remove-active);
   }
 }

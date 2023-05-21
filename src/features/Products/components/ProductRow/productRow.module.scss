@@ -1,7 +1,7 @@
 .row {
   container: productRow / inline-size;
   display: block;
-  background: #fbfbfb;
+  background: var(--background-secondary);
   padding: 11px 58px 10px;
 
   &--odd-element {

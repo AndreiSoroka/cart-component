@@ -13,7 +13,9 @@
     "build-storybook": "storybook build -o ./dist/storybook",
     "build-prerender": "node prerender.mjs",
     "type-check": "tsc --noEmit",
-    "commit-check": "run-p type-check test:unit prettier lint",
+    "commit-check": "run-p type-check test:unit prettier lint stylelint",
+    "stylelint": "npx stylelint **/*.scss",
+    "stylelint:fix": "npx stylelint **/*.scss --fix",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "yarn lint --fix",
     "prettier": "prettier --check ./src",
@@ -66,6 +68,8 @@
     "prop-types": "^15.8.1",
     "sass": "^1.62.1",
     "storybook": "^7.0.12",
+    "stylelint": "^15.6.2",
+    "stylelint-config-standard-scss": "^9.0.0",
     "typescript": "^5.0.4",
     "vite": "^4.3.2"
   }

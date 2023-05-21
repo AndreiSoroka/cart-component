@@ -6,9 +6,11 @@
   line-height: 19px;
   color: var(--link-remove);
   user-select: none;
+
   &:hover {
     color: var(--link-remove-hover);
   }
+
   &:active {
     color: var(--link-remove-active);
   }

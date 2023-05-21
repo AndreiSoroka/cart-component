@@ -6,6 +6,16 @@
   border: 2px solid var(--border);
   box-shadow: 0 4px 20px var(--border);
   border-radius: 10px;
+  animation: show 1s forwards;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .card-content {

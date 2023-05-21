@@ -10,22 +10,25 @@ const ProductRow = ({
 }: ProductRowProps) => {
   const rowStyles =
     elementKey % 2
-      ? `${RowStyle.row} ${RowStyle["row--odd-element"]}`
-      : RowStyle.row;
+      ? `${RowStyle["product-row"]} ${RowStyle["product-row--odd-element"]}`
+      : RowStyle["product-row"];
 
   return (
     <div className={rowStyles} data-testid="productRow">
-      <div className={RowStyle.row__elements}>
+      <div className={RowStyle["product-row__elements"]}>
         <div
-          className={RowStyle.row__text}
+          className={RowStyle["product-row__text"]}
           data-testid="productRow__productName"
         >
           {product}
         </div>
-        <div className={RowStyle.row__text} data-testid="productRow__shopName">
+        <div
+          className={RowStyle["product-row__text"]}
+          data-testid="productRow__shopName"
+        >
           {shopName}
         </div>
-        <div className={RowStyle.row__actions}>
+        <div className={RowStyle["product-row__actions"]}>
           <RemoveLink
             label="Delete"
             onClick={onRemove}

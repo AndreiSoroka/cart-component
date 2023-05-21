@@ -34,7 +34,7 @@ describe("Row", () => {
     };
     const { container } = render(<ProductRow {...props} />);
     const element = container.firstElementChild;
-    expect(element?.classList.contains(RowStyle.row)).toBeTruthy();
+    expect(element?.classList.contains(RowStyle["product-row"])).toBeTruthy();
     expect(
       element?.classList.contains(RowStyle["row--odd-element"])
     ).toBeFalsy();
@@ -43,9 +43,9 @@ describe("Row", () => {
   it("should has correct style for odd elementKey", () => {
     const { container } = render(<ProductRow {...defaultProps} />);
     const element = container.firstElementChild;
-    expect(element?.classList.contains(RowStyle.row)).toBeTruthy();
+    expect(element?.classList.contains(RowStyle["product-row"])).toBeTruthy();
     expect(
-      element?.classList.contains(RowStyle["row--odd-element"])
+      element?.classList.contains(RowStyle["product-row--odd-element"])
     ).toBeFalsy();
   });
 
@@ -53,9 +53,9 @@ describe("Row", () => {
     const props = { ...defaultProps, elementKey: 1 };
     const { container } = render(<ProductRow {...props} />);
     const element = container.firstElementChild;
-    expect(element?.classList.contains(RowStyle.row)).toBeTruthy();
+    expect(element?.classList.contains(RowStyle["product-row"])).toBeTruthy();
     expect(
-      element?.classList.contains(RowStyle["row--odd-element"])
+      element?.classList.contains(RowStyle["product-row--odd-element"])
     ).toBeTruthy();
   });
 });

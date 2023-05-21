@@ -24,8 +24,9 @@
 
 - 2023 year
 - [FSD structure](https://feature-sliced.design/)
-- Jest tests ([coverage 100%](https://cart-component.andreisoroka.com/coverage/)), E2E
-  tests ([Playwright](https://cart-component.andreisoroka.com/playwright-report/))
+- Jest tests ([coverage 100%](https://cart-component.andreisoroka.com/coverage/)),
+  E2E tests ([Playwright](https://cart-component.andreisoroka.com/playwright-report/)),
+  Trivial testing screenshots (but not with storybook/chromatic, but only with playwriting, because limited time)
 - [SSG](https://vitejs.dev/guide/ssr.html#pre-rendering-ssg)
 - Used design from test assignment (perfect pixel)
 - Code quality: eslint, stylelint, prettier (and check in Husky, GitHub Actions)

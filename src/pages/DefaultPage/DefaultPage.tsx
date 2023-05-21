@@ -1,12 +1,12 @@
 import defaultPageStyles from "./defaultPage.module.scss";
 import { ShopCart } from "@/widgets/ShopCart";
-import { ProductInfo } from "@/features/ProductInfo";
+import { ProjectInfo } from "@/features/ProjectInfo";
 
 const DefaultPage = () => {
   return (
     <div className={defaultPageStyles["default-page"]}>
       <ShopCart />
-      <ProductInfo />
+      <ProjectInfo />
     </div>
   );
 };

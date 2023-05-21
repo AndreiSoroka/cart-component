@@ -1,4 +1,4 @@
-import productInfoStyles from "./ProductInfo.module.scss";
+import projectInfoStyles from "./projectInfo.module.scss";
 
 const LINK_LIST = [
   {
@@ -19,7 +19,7 @@ const LINK_LIST = [
   },
 ];
 
-const ProductInfo = () => {
+const ProjectInfo = () => {
   const links = LINK_LIST.map((link) => (
     <li key={link.name}>
       <a href={link.url} target="_blank" rel="nofollow noopener">
@@ -27,7 +27,7 @@ const ProductInfo = () => {
       </a>
     </li>
   ));
-  return <ul className={productInfoStyles["product-info"]}>{links}</ul>;
+  return <ul className={projectInfoStyles["project-info"]}>{links}</ul>;
 };
 
-export default ProductInfo;
+export default ProjectInfo;

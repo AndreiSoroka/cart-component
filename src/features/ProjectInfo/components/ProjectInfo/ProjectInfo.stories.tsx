@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import ProductInfo from "./ProductInfo";
+import ProjectInfo from "./ProjectInfo";
 
 const meta: Meta = {
-  title: "Features/ProductInfo/ProductInfo",
-  component: ProductInfo,
+  title: "Features/ProjectInfo/ProjectInfo",
+  component: ProjectInfo,
   tags: ["Components"],
   argTypes: { onClick: { action: "clicked" } },
   parameters: { actions: { argTypesRegex: "^on.*" } },
-} satisfies Meta<typeof ProductInfo>;
+} satisfies Meta<typeof ProjectInfo>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

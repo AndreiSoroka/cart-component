@@ -4,15 +4,17 @@ on:
   push:
     branches:
       - master
+      - build-debugging
   workflow_dispatch: { }
 
 jobs:
-  check_commit:
+  build_deploy:
     name: build and deploy
     concurrency:
       group: deploy
       cancel-in-progress: false
     runs-on: ubuntu-22.04
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v3
 
@@ -24,13 +26,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Install Playwright Browsers
-        run: yarn playwright install --with-deps
-
       - name: 🛠 Build
         run: yarn build
 
       - name: 📂 Deploy
+        if: github.ref == 'refs/heads/master'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}

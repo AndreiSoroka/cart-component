@@ -41,6 +41,7 @@ describe("Products", () => {
     });
 
     await waitFor(() => container.textContent);
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     expect(container.textContent).toContain("Product 1");
     expect(container.textContent).toContain("Product 2");

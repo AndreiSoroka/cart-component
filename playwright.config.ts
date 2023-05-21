@@ -3,7 +3,10 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "./tests/e2e",
   outputDir: "./dist/test-results",
-  reporter: [["list"], ["html", { outputFolder: "./dist/playwright-report/" }]],
+  reporter: [
+    ["list"],
+    ["html", { outputFolder: "./dist/playwright-report/", open: "never" }],
+  ],
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,

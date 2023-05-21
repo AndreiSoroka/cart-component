@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-      - build-debugging
+      - build-debugger
   workflow_dispatch: { }
 
 jobs:
@@ -40,3 +40,18 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
+
+  cdn:
+    name: CDN
+    runs-on: ubuntu-22.04
+    needs:
+      - build_deploy
+    steps:
+      - name: 🗑 Pure Cloudflare cache
+#        if: github.ref == 'refs/heads/master'
+        run: |
+          curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE }}/purge_cache" \
+          -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_CACHE_PURE_TOKEN }} \
+          -H "Content-Type: application/json" \
+          --data '{"purge_everything":true}';
+

@@ -36,7 +36,7 @@ const ProductForm = () => {
   };
 
   return (
-    <div className={ProductFormStyle["product-form"]}>
+    <div className={ProductFormStyle["product-form"]} data-testid="productForm">
       <h2 className={ProductFormStyle["product-form__title"]}>Add to cart:</h2>
       <form
         className={ProductFormStyle["product-form__form"]}
@@ -49,6 +49,7 @@ const ProductForm = () => {
           ref={inputRef}
           maxlength={30}
           required
+          dataTestId="productForm__productName"
         />
         <Select
           options={options}
@@ -56,8 +57,13 @@ const ProductForm = () => {
           onChange={setShopId}
           placeholder={isDisabled ? "Loading shops..." : "Select shop"}
           required
+          dataTestId="productForm__shopId"
         />
-        <Button disabled={isDisabled} label="Add" />
+        <Button
+          disabled={isDisabled}
+          label="Add"
+          dataTestId="productForm__submitButton"
+        />
       </form>
     </div>
   );

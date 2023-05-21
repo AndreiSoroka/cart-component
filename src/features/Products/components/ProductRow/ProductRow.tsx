@@ -14,12 +14,23 @@ const ProductRow = ({
       : RowStyle.row;
 
   return (
-    <div className={rowStyles}>
+    <div className={rowStyles} data-testid="productRow">
       <div className={RowStyle.row__elements}>
-        <div className={RowStyle.row__text}>{product}</div>
-        <div className={RowStyle.row__text}>{shopName}</div>
+        <div
+          className={RowStyle.row__text}
+          data-testid="productRow__productName"
+        >
+          {product}
+        </div>
+        <div className={RowStyle.row__text} data-testid="productRow__shopName">
+          {shopName}
+        </div>
         <div className={RowStyle.row__actions}>
-          <RemoveLink label="Delete" onClick={onRemove} />
+          <RemoveLink
+            label="Delete"
+            onClick={onRemove}
+            dataTestId="productRow__removeLink"
+          />
         </div>
       </div>
     </div>

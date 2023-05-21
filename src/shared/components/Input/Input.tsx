@@ -12,6 +12,7 @@ export const Input = forwardRef(
       required = false,
       maxlength = 255,
       type = "text",
+      dataTestId,
     }: InputProps,
     ref: ForwardedRef<HTMLInputElement>
   ) => {
@@ -29,6 +30,7 @@ export const Input = forwardRef(
         className={InputStyle.input}
         required={required}
         maxLength={maxlength}
+        data-testid={dataTestId}
       />
     );
   }

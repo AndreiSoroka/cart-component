@@ -11,6 +11,7 @@ jobs:
       group: check_commit
       cancel-in-progress: true
     runs-on: ubuntu-22.04
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v3
 
@@ -22,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Check commit
+      - name: 📝 Check commit
         run: yarn commit-check
 
   sendMessage:

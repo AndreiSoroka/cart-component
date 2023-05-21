@@ -30,7 +30,15 @@ jobs:
         run: yarn playwright install --with-deps
 
       - name: 🛠 Build
+        id: build
         run: yarn build
+
+      - name: Save Test-Screenshots from CI
+        uses: actions/upload-artifact@v3
+        if: failure() && steps.build.outcome != 'success'
+        with:
+          name: screenshots
+          path: ./tests/e2e/
 
       - name: 📂 Deploy
         if: github.ref == 'refs/heads/master'

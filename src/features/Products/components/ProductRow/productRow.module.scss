@@ -1,5 +1,5 @@
 .row {
-  container: productRow / inline-size;
+  container: productrow / inline-size;
   display: block;
   background: var(--background-secondary);
   padding: 11px 58px 10px;
@@ -18,7 +18,7 @@
     grid-template-columns: 260fr 202fr 101px;
     gap: 10px;
 
-    @container productRow (width < 350px) {
+    @container productrow (width < 350px) {
       grid-template-columns: 1fr;
     }
   }

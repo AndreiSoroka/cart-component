@@ -1,4 +1,5 @@
 import projectInfoStyles from "./projectInfo.module.scss";
+import { memo } from "react";
 
 const LINK_LIST = [
   {
@@ -19,7 +20,7 @@ const LINK_LIST = [
   },
 ];
 
-const ProjectInfo = () => {
+const ProjectInfo = memo(() => {
   const links = LINK_LIST.map((link) => (
     <li key={link.name}>
       <a href={link.url} target="_blank" rel="nofollow noopener">
@@ -28,6 +29,6 @@ const ProjectInfo = () => {
     </li>
   ));
   return <ul className={projectInfoStyles["project-info"]}>{links}</ul>;
-};
+});
 
 export default ProjectInfo;

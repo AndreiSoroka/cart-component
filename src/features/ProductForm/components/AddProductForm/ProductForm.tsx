@@ -1,7 +1,7 @@
 import React, { useMemo, useRef, useState } from "react";
 import { Input } from "@/shared/components/Input/Input";
 import { Select } from "@/shared/components/Input/Select";
-import { Button } from "@/shared/components/Button/Button";
+import Button from "@/shared/components/Button/Button";
 import { useShopsStore } from "@/entities/Shops";
 import { useCartStore } from "@/entities/Cart";
 import ProductFormStyle from "./productForm.module.scss";

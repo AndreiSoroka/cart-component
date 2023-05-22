@@ -1,7 +1,8 @@
 type ProductRowProps = {
+  id: string;
   product: string;
   shopName: string;
-  onRemove?: () => void;
+  onRemove?: (id: string) => void;
   elementKey?: number;
 };
 

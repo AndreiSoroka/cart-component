@@ -25,10 +25,11 @@ const Products = () => {
       {products.map((item, index) => (
         <ProductRow
           key={item.id}
+          id={item.id}
           elementKey={index}
           shopName={shopsMap[item.shopId] || "..."}
           product={item.productName}
-          onRemove={() => removeItemFromCart(item.id)}
+          onRemove={removeItemFromCart}
         />
       ))}
     </div>

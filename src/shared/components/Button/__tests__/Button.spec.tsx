@@ -1,6 +1,6 @@
 import { describe, expect, it } from "@jest/globals";
 import { fireEvent, render } from "@testing-library/react";
-import { Button } from "../Button";
+import Button from "../Button";
 
 describe("Button", () => {
   it("renders the label", () => {

@@ -1,7 +1,7 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import { Input } from "@/shared/components/Input/Input";
 import { Select } from "@/shared/components/Input/Select";
-import { Button } from "@/shared/components/Button/Button";
+import Button from "@/shared/components/Button/Button";
 import { useShopsStore } from "@/entities/Shops";
 import { useCartStore } from "@/entities/Cart";
 import ProductFormStyle from "./productForm.module.scss";
@@ -12,13 +12,25 @@ const ProductForm = () => {
   const [productName, setProductName] = useState("");
   const [shopId, setShopId] = useState("");
 
+  const setProductNameMemo = useCallback((name: string) => {
+    setProductName(name);
+  }, []);
+
+  const setShopIdMemo = useCallback((id: string) => {
+    setShopId(id);
+  }, []);
+
   const { isLoading, isLoaded, list: shopsList } = useShopsStore();
   const { addItemToCart } = useCartStore();
 
-  const options = shopsList.map((item) => ({
-    value: item.id,
-    label: item.name,
-  }));
+  const options = useMemo(
+    () =>
+      shopsList.map((item) => ({
+        value: item.id,
+        label: item.name,
+      })),
+    [shopsList]
+  );
 
   const isDisabled = useMemo(() => {
     return !isLoaded || isLoading;
@@ -44,7 +56,7 @@ const ProductForm = () => {
       >
         <Input
           value={productName}
-          onChange={setProductName}
+          onChange={setProductNameMemo}
           placeholder="Name"
           ref={inputRef}
           maxlength={30}
@@ -54,7 +66,7 @@ const ProductForm = () => {
         <Select
           options={options}
           defaultValue={shopId}
-          onChange={setShopId}
+          onChange={setShopIdMemo}
           placeholder={isDisabled ? "Loading shops..." : "Select shop"}
           required
           dataTestId="productForm__shopId"

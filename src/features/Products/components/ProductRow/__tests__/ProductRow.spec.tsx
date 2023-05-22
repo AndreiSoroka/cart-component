@@ -6,6 +6,7 @@ import type ProductRowProps from "@/features/Products/components/ProductRow/type
 
 describe("Row", () => {
   const defaultProps: ProductRowProps = {
+    id: "1",
     product: "Test Product",
     shopName: "Test Market",
     onRemove: jest.fn(),
@@ -28,6 +29,7 @@ describe("Row", () => {
 
   it("should has correct style for empty elementKey", () => {
     const props = {
+      id: "1",
       product: "Test Product",
       shopName: "Test Market",
       onRemove: jest.fn(),

@@ -22,11 +22,10 @@ const Products = () => {
   }
   return (
     <div>
-      {products.map((item, index) => (
+      {products.map((item) => (
         <ProductRow
           key={item.id}
           id={item.id}
-          elementKey={index}
           shopName={shopsMap[item.shopId] || "..."}
           product={item.productName}
           onRemove={removeItemFromCart}

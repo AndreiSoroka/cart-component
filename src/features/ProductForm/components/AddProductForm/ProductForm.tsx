@@ -25,9 +25,9 @@ const ProductForm = () => {
 
   const options = useMemo(
     () =>
-      shopsList.map((item) => ({
-        value: item.id,
-        label: item.name,
+      shopsList.map(({ id, name }) => ({
+        value: id,
+        label: name,
       })),
     [shopsList]
   );
@@ -40,11 +40,11 @@ const ProductForm = () => {
     event.preventDefault();
     addItemToCart({
       id: nanoid(),
-      productName: productName,
+      productName,
       shopId,
     });
+    setProductName("");
     inputRef.current?.focus();
-    inputRef.current?.select();
   };
 
   return (

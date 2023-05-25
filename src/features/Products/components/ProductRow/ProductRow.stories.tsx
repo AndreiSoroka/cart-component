@@ -6,7 +6,6 @@ const meta: Meta<typeof ProductRow> = {
   component: ProductRow,
   argTypes: {
     onRemove: { action: "removed" },
-    elementKey: { control: "number", defaultValue: 0 },
   },
   parameters: { actions: { argTypesRegex: "^on.*" } },
 };
@@ -18,14 +17,5 @@ export const Default: Story = {
   args: {
     product: "Product Name",
     shopName: "Market Name",
-    elementKey: 0,
-  },
-};
-
-export const NextRow: Story = {
-  args: {
-    product: "Product Name",
-    shopName: "Market Name",
-    elementKey: 1,
   },
 };

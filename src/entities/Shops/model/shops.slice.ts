@@ -1,6 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSelector, createSlice } from "@reduxjs/toolkit";
 import type ShopsState from "@/entities/Shops/types/ShopsState.type";
 import { getShops } from "@/entities/Shops/api/getShops.api";
+import type { RootState } from "@/store";
 
 const initialState: ShopsState = {
   list: [],
@@ -33,5 +34,14 @@ const shopsSlice = createSlice({
       });
   },
 });
+
+const selectShopsLoading = (state: RootState) => state.shops.isLoading;
+const selectShopsLoaded = (state: RootState) => state.shops.isLoaded;
+export const selectShopsList = (state: RootState) => state.shops.list;
+export const selectShopsDisabled = createSelector(
+  selectShopsLoading,
+  selectShopsLoaded,
+  (isLoading, isLoaded) => !isLoaded || isLoading
+);
 
 export default shopsSlice;

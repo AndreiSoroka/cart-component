@@ -1,13 +1,14 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Input } from "@/shared/components/Input/Input";
 import { Select } from "@/shared/components/Input/Select";
 import Button from "@/shared/components/Button/Button";
-import { useShopsStore } from "@/entities/Shops";
-import { useCartStore } from "@/entities/Cart";
 import ProductFormStyle from "./productForm.module.scss";
-import { nanoid } from "@reduxjs/toolkit";
+import { selectShopsDisabled, selectShopsList } from "@/entities/Shops";
+import { addItemToCart } from "@/entities/Cart";
 
 const ProductForm = () => {
+  const dispatch = useDispatch();
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [productName, setProductName] = useState("");
   const [shopId, setShopId] = useState("");
@@ -20,8 +21,8 @@ const ProductForm = () => {
     setShopId(id);
   }, []);
 
-  const { isLoading, isLoaded, list: shopsList } = useShopsStore();
-  const { addItemToCart } = useCartStore();
+  const shopsList = useSelector(selectShopsList);
+  const isDisabled = useSelector(selectShopsDisabled);
 
   const options = useMemo(
     () =>
@@ -32,17 +33,14 @@ const ProductForm = () => {
     [shopsList]
   );
 
-  const isDisabled = useMemo(() => {
-    return !isLoaded || isLoading;
-  }, [isLoaded, isLoading]);
-
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    addItemToCart({
-      id: nanoid(),
-      productName,
-      shopId,
-    });
+    dispatch(
+      addItemToCart({
+        productName,
+        shopId,
+      })
+    );
     setProductName("");
     inputRef.current?.focus();
   };

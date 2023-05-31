@@ -1,7 +1,7 @@
 import type { PreloadedState } from "@reduxjs/toolkit";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import CartSlice from "./entities/Cart/model/cart/cart.slice";
-import ShopsSlice from "./entities/Shops/model/shops/shops.slice";
+import CartSlice from "./entities/Cart/model/cart.slice";
+import ShopsSlice from "./entities/Shops/model/shops.slice";
 
 const rootReducer = combineReducers({
   cart: CartSlice.reducer,

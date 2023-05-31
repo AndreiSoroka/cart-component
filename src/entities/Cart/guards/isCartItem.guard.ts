@@ -1,4 +1,4 @@
-import type CartItem from "../types/Cart.type";
+import type CartItem from "../types/CartItem.type";
 
 export default function isCartItem(item: unknown): item is CartItem {
   return (

@@ -19,7 +19,7 @@ const ShopCart = () => {
   }, [dispatch]);
 
   return (
-    <div className={shopCartStyles["shop-cart"]}>
+    <div className={shopCartStyles.wrapper}>
       <Card>
         <CardContent>
           <ProductForm />

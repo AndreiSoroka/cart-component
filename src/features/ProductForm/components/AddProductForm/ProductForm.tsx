@@ -46,12 +46,9 @@ const ProductForm = () => {
   };
 
   return (
-    <div className={ProductFormStyle["product-form"]} data-testid="productForm">
-      <h2 className={ProductFormStyle["product-form__title"]}>Add to cart:</h2>
-      <form
-        className={ProductFormStyle["product-form__form"]}
-        onSubmit={handleSubmit}
-      >
+    <div data-testid="productForm">
+      <h2 className={ProductFormStyle.title}>Add to cart:</h2>
+      <form className={ProductFormStyle.form} onSubmit={handleSubmit}>
         <Input
           value={productName}
           onChange={setProductNameMemo}

@@ -1,13 +1,11 @@
-.product-form {
-  &__title {
-    margin: 15px 0 20px;
-    font-weight: 500;
-  }
+.title {
+  margin: 15px 0 20px;
+  font-weight: 500;
+}
 
-  &__form {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
+.form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }

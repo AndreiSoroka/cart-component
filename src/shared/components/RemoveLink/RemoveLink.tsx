@@ -5,7 +5,7 @@ export const RemoveLink = ({ label, onClick, dataTestId }: RemoveLinkProps) => {
   return (
     <button
       data-test-el="remove-link"
-      className={RemoveLinkStyle["remove-link"]}
+      className={RemoveLinkStyle.link}
       onClick={onClick}
       data-testid={dataTestId}
     >

@@ -6,10 +6,13 @@ import { setupStore } from "@/store";
 const mockShopState = {
   isLoading: false,
   isLoaded: true,
-  list: [
-    { id: "1", name: "Shop 1", sortOrder: 1 },
-    { id: "2", name: "Shop 2", sortOrder: 2 },
-  ],
+  list: {
+    ids: ["1", "2"],
+    entities: {
+      "1": { id: "1", name: "Shop 1", sortOrder: 1 },
+      "2": { id: "2", name: "Shop 2", sortOrder: 2 },
+    },
+  },
   error: "",
 };
 
@@ -56,7 +59,14 @@ export const EmptyCart: StoryFn = (args) => {
 
 export const EmptyShopAndLoading: StoryFn = (args) => {
   const store = setupStore({
-    shops: { ...mockShopState, isLoading: true, list: [] },
+    shops: {
+      ...mockShopState,
+      isLoading: true,
+      list: {
+        ids: [],
+        entities: {},
+      },
+    },
     cart: mockCartState,
   });
 

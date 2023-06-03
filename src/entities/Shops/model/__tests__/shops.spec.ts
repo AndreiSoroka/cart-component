@@ -8,7 +8,6 @@ const MockShop1 = { id: "1", name: "Shop 1", sortOrder: 1 };
 const MockShop2 = { id: "2", name: "Shop 2", sortOrder: 2 };
 const MockShop3 = { id: "3", name: "Shop 3", sortOrder: 3 };
 const MockShops = [MockShop2, MockShop1, MockShop3];
-const MockShopsCorrectOrder = [MockShop1, MockShop2, MockShop3];
 
 fetchMock.enableMocks();
 
@@ -19,7 +18,7 @@ describe("Shops reducer", () => {
 
   it("should handle initial state", () => {
     const { list, isLoading, error } = store.getState().shops;
-    expect(list).toEqual([]);
+    expect(list).toMatchSnapshot();
     expect(isLoading).toBe(false);
     expect(error).toBe("");
   });
@@ -29,7 +28,7 @@ describe("Shops reducer", () => {
 
     await store.dispatch(getShops());
     const { list, isLoading, error } = store.getState().shops;
-    expect(list).toEqual(MockShopsCorrectOrder);
+    expect(list).toMatchSnapshot();
     expect(isLoading).toBe(false);
     expect(error).toBe("");
   });

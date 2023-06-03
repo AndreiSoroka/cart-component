@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Shops reducer should handle getShops 1`] = `
+{
+  "entities": {
+    "1": {
+      "id": "1",
+      "name": "Shop 1",
+      "sortOrder": 1,
+    },
+    "2": {
+      "id": "2",
+      "name": "Shop 2",
+      "sortOrder": 2,
+    },
+    "3": {
+      "id": "3",
+      "name": "Shop 3",
+      "sortOrder": 3,
+    },
+  },
+  "ids": [
+    "1",
+    "2",
+    "3",
+  ],
+}
+`;
+
+exports[`Shops reducer should handle initial state 1`] = `
+{
+  "entities": {},
+  "ids": [],
+}
+`;

@@ -4,6 +4,7 @@ const environmentMeta = {
   PROD: import.meta.env.PROD,
   MODE: import.meta.env.MODE,
   STORYBOOK: !!import.meta.env.STORYBOOK,
+  TEST: false,
 };
 
 export default environmentMeta;

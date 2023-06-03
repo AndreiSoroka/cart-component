@@ -21,7 +21,7 @@ const ProductForm = () => {
     setShopId(id);
   }, []);
 
-  const shopsList = useSelector(selectShopsList);
+  const shopsList = useSelector(selectShopsList.selectAll);
   const isDisabled = useSelector(selectShopsDisabled);
 
   const options = useMemo(

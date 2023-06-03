@@ -1,10 +1,21 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
+import {
+  createEntityAdapter,
+  createSelector,
+  createSlice,
+} from "@reduxjs/toolkit";
 import type ShopsState from "@/entities/Shops/types/ShopsState.type";
 import { getShops } from "@/entities/Shops/api/getShops.api";
 import type { RootState } from "@/store";
+import type Shop from "@/entities/Shops/types/Shop.type";
+import compareShopsByOrderAndName from "@/entities/Shops/lib/helpers/compareShopsByOrderAndName";
+
+const ShopsAdapter = createEntityAdapter<Shop>({
+  selectId: (book) => book.id,
+  sortComparer: compareShopsByOrderAndName,
+});
 
 const initialState: ShopsState = {
-  list: [],
+  list: ShopsAdapter.getInitialState(),
   error: "",
   isLoading: false,
   isLoaded: false,
@@ -23,7 +34,7 @@ const shopsSlice = createSlice({
         state.isLoading = false;
         state.isLoaded = true;
         state.error = "";
-        state.list = action.payload;
+        ShopsAdapter.setAll(state.list, action.payload);
       })
       .addCase(getShops.rejected, (state, action) => {
         state.isLoading = false;
@@ -35,7 +46,9 @@ const shopsSlice = createSlice({
 
 const selectShopsLoading = (state: RootState) => state.shops.isLoading;
 const selectShopsLoaded = (state: RootState) => state.shops.isLoaded;
-export const selectShopsList = (state: RootState) => state.shops.list;
+export const selectShopsList = ShopsAdapter.getSelectors<RootState>(
+  (state) => state.shops.list
+);
 export const selectShopsDisabled = createSelector(
   selectShopsLoading,
   selectShopsLoaded,

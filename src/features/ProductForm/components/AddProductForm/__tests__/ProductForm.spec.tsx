@@ -13,13 +13,12 @@ describe("ProductForm", () => {
       preloadedState: {
         shops: {
           isLoading: false,
-          list: [
-            {
-              id: "shop1",
-              name: "Shop 1",
-              sortOrder: 1,
+          list: {
+            ids: ["shop1"],
+            entities: {
+              shop1: { id: "shop1", name: "Shop 1", sortOrder: 1 },
             },
-          ],
+          },
           error: "",
           isLoaded: true,
         },
@@ -51,7 +50,10 @@ describe("ProductForm", () => {
       preloadedState: {
         shops: {
           isLoading: true,
-          list: [],
+          list: {
+            ids: [],
+            entities: {},
+          },
           error: "",
           isLoaded: true,
         },

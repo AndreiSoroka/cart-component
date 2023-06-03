@@ -1,5 +1,6 @@
 import type CartState from "@/entities/Cart/types/CartState.type";
 import isCartItems from "@/entities/Cart/guards/isCartItems.guard";
+import logger from "@/shared/lib/logger/logger";
 
 const KEY = "cartStore/list";
 export const getCartFromStorage = (defaultValue: CartState["list"]) => {
@@ -12,7 +13,7 @@ export const getCartFromStorage = (defaultValue: CartState["list"]) => {
       }
     }
   } catch (e) {
-    console.error(e);
+    logger(e);
   }
   return defaultValue;
 };
@@ -20,7 +21,7 @@ export const setCartToStorage = (defaultValue: CartState["list"]) => {
   try {
     localStorage.setItem(KEY, JSON.stringify(defaultValue));
   } catch (e) {
-    console.error(e);
+    logger(e);
     return;
   }
 };

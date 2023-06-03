@@ -3,9 +3,8 @@ import type Shop from "@/entities/Shops/types/Shop.type";
 
 type ShopsState = {
   list: EntityState<Shop>;
-  isLoading: boolean;
   error: string;
-  isLoaded: boolean;
+  status: "idle" | "pending" | "success" | "error";
 };
 
 export default ShopsState;

@@ -2,10 +2,10 @@ import { Provider } from "react-redux";
 import type { Meta, StoryFn } from "@storybook/react";
 import Products from "./Products";
 import { setupStore } from "@/store";
+import type ShopsState from "@/entities/Shops/types/ShopsState.type";
 
-const mockShopState = {
-  isLoading: false,
-  isLoaded: true,
+const mockShopState: ShopsState = {
+  status: "success",
   list: {
     ids: ["1", "2"],
     entities: {
@@ -61,7 +61,7 @@ export const EmptyShopAndLoading: StoryFn = (args) => {
   const store = setupStore({
     shops: {
       ...mockShopState,
-      isLoading: true,
+      status: "pending",
       list: {
         ids: [],
         entities: {},

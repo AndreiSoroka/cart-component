@@ -12,7 +12,7 @@ describe("ProductForm", () => {
     const { container, store } = renderWithProviders(<ProductForm />, {
       preloadedState: {
         shops: {
-          isLoading: false,
+          status: "success",
           list: {
             ids: ["shop1"],
             entities: {
@@ -20,7 +20,6 @@ describe("ProductForm", () => {
             },
           },
           error: "",
-          isLoaded: true,
         },
       },
     });
@@ -49,13 +48,12 @@ describe("ProductForm", () => {
     const { container } = renderWithProviders(<ProductForm />, {
       preloadedState: {
         shops: {
-          isLoading: true,
+          status: "pending",
           list: {
             ids: [],
             entities: {},
           },
           error: "",
-          isLoaded: true,
         },
       },
     });

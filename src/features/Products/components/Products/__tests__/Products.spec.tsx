@@ -12,7 +12,7 @@ describe("Products", () => {
     const { container } = renderWithProviders(<Products />, {
       preloadedState: {
         shops: {
-          isLoading: false,
+          status: "success",
           list: {
             ids: ["shop1"],
             entities: {
@@ -20,7 +20,6 @@ describe("Products", () => {
             },
           },
           error: "",
-          isLoaded: true,
         },
         cart: {
           list: [
@@ -51,7 +50,7 @@ describe("Products", () => {
     const { container, store } = renderWithProviders(<Products />, {
       preloadedState: {
         shops: {
-          isLoading: false,
+          status: "success",
           list: {
             ids: ["1"],
             entities: {
@@ -59,7 +58,6 @@ describe("Products", () => {
             },
           },
           error: "",
-          isLoaded: true,
         },
         cart: {
           list: [

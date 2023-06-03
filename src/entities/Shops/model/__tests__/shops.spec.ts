@@ -17,9 +17,9 @@ describe("Shops reducer", () => {
   });
 
   it("should handle initial state", () => {
-    const { list, isLoading, error } = store.getState().shops;
+    const { list, status, error } = store.getState().shops;
     expect(list).toMatchSnapshot();
-    expect(isLoading).toBe(false);
+    expect(status).toBe("idle");
     expect(error).toBe("");
   });
 
@@ -27,9 +27,9 @@ describe("Shops reducer", () => {
     fetchMock.mockResponseOnce(JSON.stringify(MockShops));
 
     await store.dispatch(getShops());
-    const { list, isLoading, error } = store.getState().shops;
+    const { list, status, error } = store.getState().shops;
     expect(list).toMatchSnapshot();
-    expect(isLoading).toBe(false);
+    expect(status).toBe("success");
     expect(error).toBe("");
   });
 
@@ -37,18 +37,18 @@ describe("Shops reducer", () => {
     fetchMock.mockResponseOnce("", { status: 500 });
 
     await store.dispatch(getShops());
-    const { error, isLoading } = store.getState().shops;
+    const { error, status } = store.getState().shops;
     expect(error).toContain("invalid json response");
-    expect(isLoading).toBe(false);
+    expect(status).toBe("error");
   });
 
   it("should throw error when fetch returns invalid data", async () => {
     fetchMock.mockResponseOnce(JSON.stringify([{ test: 3 }]));
 
     await store.dispatch(getShops());
-    const { error, isLoading } = store.getState().shops;
+    const { error, status } = store.getState().shops;
     expect(error).toBe("Something wrong");
-    expect(isLoading).toBe(false);
+    expect(status).toBe("error");
   });
 
   it("should handle error when fetch is rejected without a message", async () => {
@@ -56,8 +56,8 @@ describe("Shops reducer", () => {
     fetchMock.mockRejectOnce(errorWithoutMessage);
 
     await store.dispatch(getShops());
-    const { error, isLoading } = store.getState().shops;
+    const { error, status } = store.getState().shops;
     expect(error).toBe("Something wrong");
-    expect(isLoading).toBe(false);
+    expect(status).toBe("error");
   });
 });

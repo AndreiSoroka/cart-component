@@ -17,8 +17,7 @@ const ShopsAdapter = createEntityAdapter<Shop>({
 const initialState: ShopsState = {
   list: ShopsAdapter.getInitialState(),
   error: "",
-  isLoading: false,
-  isLoaded: false,
+  status: "idle",
 };
 const shopsSlice = createSlice({
   name: "shops",
@@ -27,32 +26,28 @@ const shopsSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(getShops.pending, (state) => {
-        state.isLoading = true;
+        state.status = "pending";
         state.error = "";
       })
       .addCase(getShops.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.isLoaded = true;
+        state.status = "success";
         state.error = "";
         ShopsAdapter.setAll(state.list, action.payload);
       })
       .addCase(getShops.rejected, (state, action) => {
-        state.isLoading = false;
-        state.isLoaded = true;
+        state.status = "error";
         state.error = action?.error?.message || "Something wrong";
       });
   },
 });
 
-const selectShopsLoading = (state: RootState) => state.shops.isLoading;
-const selectShopsLoaded = (state: RootState) => state.shops.isLoaded;
+const selectShopsStatus = (state: RootState) => state.shops.status;
 export const selectShopsList = ShopsAdapter.getSelectors<RootState>(
   (state) => state.shops.list
 );
 export const selectShopsDisabled = createSelector(
-  selectShopsLoading,
-  selectShopsLoaded,
-  (isLoading, isLoaded) => !isLoaded || isLoading
+  selectShopsStatus,
+  (status) => status !== "success"
 );
 
 export default shopsSlice;

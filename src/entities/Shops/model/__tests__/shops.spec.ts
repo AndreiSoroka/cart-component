@@ -1,5 +1,4 @@
 import { describe, expect, it, beforeEach } from "@jest/globals";
-import shopsSlice from "../shops.slice";
 import { getShops } from "@/entities/Shops/api/getShops.api";
 import { setupStore } from "@/store";
 import fetchMock from "jest-fetch-mock";
@@ -16,12 +15,6 @@ fetchMock.enableMocks();
 describe("Shops reducer", () => {
   beforeEach(() => {
     fetchMock.resetMocks();
-  });
-
-  it("should nothing", () => {
-    store.dispatch(shopsSlice.actions.noop());
-    const { list } = store.getState().shops;
-    expect(list).toEqual([]);
   });
 
   it("should handle initial state", () => {

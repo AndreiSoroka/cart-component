@@ -12,9 +12,7 @@ const initialState: ShopsState = {
 const shopsSlice = createSlice({
   name: "shops",
   initialState: initialState,
-  reducers: {
-    noop: (state) => state, // store is small, so reducers is empty
-  },
+  reducers: {},
   extraReducers(builder) {
     builder
       .addCase(getShops.pending, (state) => {
@@ -25,7 +23,7 @@ const shopsSlice = createSlice({
         state.isLoading = false;
         state.isLoaded = true;
         state.error = "";
-        state.list = [...action.payload];
+        state.list = action.payload;
       })
       .addCase(getShops.rejected, (state, action) => {
         state.isLoading = false;

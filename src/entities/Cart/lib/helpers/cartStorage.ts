@@ -12,7 +12,7 @@ export const getCartFromStorage = (defaultValue: CartState["list"]) => {
       }
     }
   } catch (e) {
-    /* empty */
+    console.error(e);
   }
   return defaultValue;
 };
@@ -20,6 +20,7 @@ export const setCartToStorage = (defaultValue: CartState["list"]) => {
   try {
     localStorage.setItem(KEY, JSON.stringify(defaultValue));
   } catch (e) {
+    console.error(e);
     return;
   }
 };

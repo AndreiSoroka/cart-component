@@ -1,7 +1,7 @@
 import type Shop from "@/entities/Shops/types/Shop.type";
 
-export default function hasUniqueShopIds(shops: Shop[]): boolean {
-  const idMap: { [id: string]: boolean } = {};
+const hasUniqueShopIds = (shops: Shop[]): boolean => {
+  const idMap: Record<string, boolean> = {};
 
   for (const item of shops) {
     if (idMap[item.id]) {
@@ -11,4 +11,5 @@ export default function hasUniqueShopIds(shops: Shop[]): boolean {
   }
 
   return true;
-}
+};
+export default hasUniqueShopIds;

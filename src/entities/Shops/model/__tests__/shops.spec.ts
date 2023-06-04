@@ -33,21 +33,27 @@ describe("Shops reducer", () => {
     expect(error).toBe("");
   });
 
+  it("should handle getShops normal error", async () => {
+    fetchMock.mockResponseOnce(
+      JSON.stringify({
+        errorId: "errorId",
+        errorMessage: "errorMessage 123",
+      }),
+      { status: 500 }
+    );
+
+    await store.dispatch(getShops());
+    const { status, error } = store.getState().shops;
+    expect(status).toBe("error");
+    expect(error).toBe("errorMessage 123");
+  });
+
   it("should handle getShops error", async () => {
     fetchMock.mockResponseOnce("", { status: 500 });
 
     await store.dispatch(getShops());
     const { error, status } = store.getState().shops;
-    expect(error).toContain("invalid json response");
-    expect(status).toBe("error");
-  });
-
-  it("should throw error when fetch returns invalid data", async () => {
-    fetchMock.mockResponseOnce(JSON.stringify([{ test: 3 }]));
-
-    await store.dispatch(getShops());
-    const { error, status } = store.getState().shops;
-    expect(error).toBe("Something wrong");
+    expect(error).toContain("Something wrong");
     expect(status).toBe("error");
   });
 

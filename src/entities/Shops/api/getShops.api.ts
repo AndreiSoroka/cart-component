@@ -1,12 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import api from "@/shared/api";
-import isShopItems from "@/entities/Shops/guards/isShopItems.guard";
-import hasUniqueShopIds from "@/entities/Shops/lib/helpers/hasUniqueShopIds";
+import service from "@/shared/api/service";
 
-export const getShops = createAsyncThunk("shops/getShops", async () => {
-  const list = await api("/api/shops.json");
-  if (!isShopItems(list) || !hasUniqueShopIds(list)) {
-    throw new Error("Something wrong");
-  }
-  return list;
-});
+export const getShops = createAsyncThunk("shops/getShops", () =>
+  service.api.getShops().then(
+    (response) => response.data,
+    (response) => {
+      throw new Error(response.error?.errorMessage);
+    }
+  )
+);

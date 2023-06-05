@@ -2,7 +2,7 @@ I hope you find this interesting
 
 # cart-component
 
-- **Demo:** https://balance-teeter-totter.andreisoroka.com/
+- **Demo:** https://cart-component.andreisoroka.com/
 - Test coverage: https://cart-component.andreisoroka.com/coverage/
 - Playwright report: https://cart-component.andreisoroka.com/playwright-report/
 - Storybook: https://cart-component.andreisoroka.com/storybook/

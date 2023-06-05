@@ -1,3 +1,5 @@
+I hope you find this interesting
+
 # cart-component
 
 - **Demo:** https://balance-teeter-totter.andreisoroka.com/
@@ -9,7 +11,7 @@
 <summary>Demo: React memo</summary>
 
 > Highlight updates when components render:
-> 
+>
 > <img src="./doc/demoMemo.gif">
 </details>
 
@@ -18,20 +20,25 @@
 
 > I am not a designer, yet I possess skills in working with Figma.
 > I had the honor of adding structure to the Figma file.
-> 
+>
 > Added components:
-> 
+>
 > <img src="./doc/demoFigmaComponents.png">
-> 
+>
 > With variables:
-> 
+>
 > <img src="./doc/demoFigmaVariables.png">
-> 
+>
 > X-Ray (was/became):
-> 
+>
 > <img src="./doc/demoFigmaXRay.png">
-> 
+>
 > You can download: [Updated Figma file](doc%2FShopping%20card%20%28Remake%29.fig)
+>
+> I think: An engineer should possess the ability to comprehend concepts across a wide range of disciplines,
+> not just within their own field of expertise.
+>
+> P.s. In truth, I just needed a structure before beginning the project creation. 😀
 </details>
 
 ## Table of Contents
@@ -52,25 +59,40 @@
 
 - 2023 year
 - [FSD structure](https://feature-sliced.design/)
-- Jest tests ([coverage 100%](https://cart-component.andreisoroka.com/coverage/)),
-  E2E tests ([Playwright](https://cart-component.andreisoroka.com/playwright-report/)),
-  Trivial testing screenshots (but not with storybook/chromatic, but only with playwriting, because limited time)
+- Tests:
+    - Jest tests ([coverage 100%](https://cart-component.andreisoroka.com/coverage/))
+    - E2E tests ([Playwright](https://cart-component.andreisoroka.com/playwright-report/))
+    - Screenshot tests
+      (it is better to use a storybook with chromatics, but I used playwriting due to the limited time)
+    - Test app in browsers (Chrome, Firefox, Safari)
 - [SSG](https://vitejs.dev/guide/ssr.html#pre-rendering-ssg)
 - Used design from test assignment (perfect pixel)
-- Code quality: eslint, stylelint, prettier (and check in Husky, GitHub Actions)
-- Tech stack: React, TypeScript, Redux, SCSS, Jest, Playwright, Storybook, Vite, Docker
+- Code quality:
+    - Eslint
+    - Stylelint
+    - Prettier
+    - Automatically check with GitHub Actions and Husky
+- Tech stack:
+    - React
+    - TypeScript
+    - Redux
+    - SCSS
+    - Jest
+    - Playwright
+    - Storybook
+    - Vite
+    - Docker
 
-P.S. In the realm of development, I believe that good architecture should be simple.
-The task at hand is indeed small and does not necessitate any complex structure.
+P.S. In the development realm, I believe good architecture should be simple.
+The task is indeed small and does not necessitate any complex structure.
 Nevertheless, I've taken the liberty of envisaging it as a sizable project,
-thereby employing an [FSD](https://feature-sliced.design/) approach.
+thereby employing an [FSD](https://feature-sliced.design/).
 
-P.P.S. Let us not forget that a project's architecture is invariably a reflection of the team behind it.
-Thus, what we see here is a **hypothetical architecture**, illustrative of a possible design pathway,
-rather than a real model.
+P.P.S. Let us remember that a project's architecture invariably reflects the team behind it.
+Thus, we see a **hypothetical architecture**, illustrative of a possible design pathway rather than a real.
 
 P.P.P.S. In fact, I'm not a React developer.
-Moreover, I did architecture for a limited time.
+Moreover, you can do architecture endlessly, but I had limited time.
 So, this is a double hypothesis.
 
 ## Description of the Test assignment

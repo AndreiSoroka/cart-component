@@ -9,7 +9,6 @@
 
 - [cart-component](#cart-component)
     - [My notices](#my-notices)
-    - [Table of Contents](#table-of-contents)
     - [Description of the Test assignment](#description-of-the-test-assignment)
     - [Usage](#usage)
         - [Development](#development)
@@ -32,10 +31,15 @@
 - Code quality: eslint, stylelint, prettier (and check in Husky, GitHub Actions)
 - Tech stack: React, TypeScript, Redux, SCSS, Jest, Playwright, Storybook, Vite, Docker
 
-P.S. I believe that good architecture should be simple. This is a small test task, which doesn't require any specific
-structure. But I decided to imagine it as a large project.
+P.S. In the realm of development, I believe that good architecture should be simple.
+The task at hand is indeed small and does not necessitate any complex structure.
+Nevertheless, I've taken the liberty of envisaging it as a sizable project,
+thereby employing an [FSD](https://feature-sliced.design/) approach.
 
-P.P.S. The architecture of a project depends on the team, so this is a hypothetical architecture.
+
+P.P.S. Let us not forget that a project's architecture is invariably a reflection of the team behind it.
+Thus, what we see here is a **hypothetical architecture**, illustrative of a possible design pathway,
+rather than a real model.
 
 P.P.P.S. In fact, I'm not a React developer.
 Moreover, I did architecture for a limited time.

@@ -1,8 +1,7 @@
 import type { EntityState } from "@reduxjs/toolkit";
 import type Shop from "@/entities/Shops/types/Shop.type";
 
-type ShopsState = {
-  list: EntityState<Shop>;
+type ShopsState = EntityState<Shop> & {
   error: string;
   status: "idle" | "pending" | "success" | "error";
 };

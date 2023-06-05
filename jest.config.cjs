@@ -50,6 +50,7 @@ module.exports = {
     '!src/app/**', // app config
     '!src/shared/config/**', // configs
     '!src/**/*.generated.ts', // generated files
+    '!src/**/mocks/**', // mocks
   ],
   transform: {
     "^.+\\.(t|j)sx?$": "@swc/jest",

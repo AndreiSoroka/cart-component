@@ -9,19 +9,18 @@ import type { RootState } from "@/store";
 import type Shop from "@/entities/Shops/types/Shop.type";
 import compareShopsByOrderAndName from "@/entities/Shops/lib/helpers/compareShopsByOrderAndName";
 
-const ShopsAdapter = createEntityAdapter<Shop>({
-  selectId: (book) => book.id,
+const shopsAdapter = createEntityAdapter<Shop>({
   sortComparer: compareShopsByOrderAndName,
 });
 
-const initialState: ShopsState = {
-  list: ShopsAdapter.getInitialState(),
+const initialState: ShopsState = shopsAdapter.getInitialState({
   error: "",
   status: "idle",
-};
+});
+
 const shopsSlice = createSlice({
   name: "shops",
-  initialState: initialState,
+  initialState,
   reducers: {},
   extraReducers(builder) {
     builder
@@ -32,7 +31,7 @@ const shopsSlice = createSlice({
       .addCase(getShops.fulfilled, (state, action) => {
         state.status = "success";
         state.error = "";
-        ShopsAdapter.setAll(state.list, action.payload);
+        shopsAdapter.setAll(state, action.payload);
       })
       .addCase(getShops.rejected, (state, action) => {
         state.status = "error";
@@ -41,10 +40,10 @@ const shopsSlice = createSlice({
   },
 });
 
+const selectShops = (state: RootState) => state.shops;
 const selectShopsStatus = (state: RootState) => state.shops.status;
-export const selectShopsList = ShopsAdapter.getSelectors<RootState>(
-  (state) => state.shops.list
-);
+export const selectShopsList =
+  shopsAdapter.getSelectors<RootState>(selectShops);
 export const selectShopsDisabled = createSelector(
   selectShopsStatus,
   (status) => status !== "success"

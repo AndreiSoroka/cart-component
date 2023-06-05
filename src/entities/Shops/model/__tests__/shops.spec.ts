@@ -17,8 +17,8 @@ describe("Shops reducer", () => {
   });
 
   it("should handle initial state", () => {
-    const { list, status, error } = store.getState().shops;
-    expect(list).toMatchSnapshot();
+    const { entities, status, error } = store.getState().shops;
+    expect(entities).toMatchSnapshot();
     expect(status).toBe("idle");
     expect(error).toBe("");
   });
@@ -27,8 +27,8 @@ describe("Shops reducer", () => {
     fetchMock.mockResponseOnce(JSON.stringify(MockShops));
 
     await store.dispatch(getShops());
-    const { list, status, error } = store.getState().shops;
-    expect(list).toMatchSnapshot();
+    const { entities, status, error } = store.getState().shops;
+    expect(entities).toMatchSnapshot();
     expect(status).toBe("success");
     expect(error).toBe("");
   });

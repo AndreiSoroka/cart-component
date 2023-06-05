@@ -1,33 +1,33 @@
-.product-row {
+.row {
   container: productrow / inline-size;
   display: block;
   background: var(--background-secondary);
   padding: 11px 58px 10px;
 
-  &--odd-element {
+  &:nth-child(2n) {
     background: transparent;
   }
+}
 
-  &__text {
-    overflow-wrap: anywhere;
+.text {
+  overflow-wrap: anywhere;
+}
+
+.elements {
+  max-width: 582px;
+  display: grid;
+  grid-template-columns: 260fr 202fr 101px;
+  gap: 10px;
+
+  @container productrow (width < 350px) {
+    grid-template-columns: 1fr;
   }
+}
 
-  &__elements {
-    max-width: 582px;
-    display: grid;
-    grid-template-columns: 260fr 202fr 101px;
-    gap: 10px;
+.actions {
+  text-align: right;
 
-    @container productrow (width < 350px) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  &__actions {
-    text-align: right;
-
-    @container productRow (width < 350px) {
-      text-align: left;
-    }
+  @container productRow (width < 350px) {
+    text-align: left;
   }
 }

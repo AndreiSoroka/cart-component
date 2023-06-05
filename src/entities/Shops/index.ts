@@ -1,1 +1,5 @@
-export { default as useShopsStore } from "@/entities/Shops/lib/hooks/useShopsStore";
+export {
+  selectShopsList,
+  selectShopsDisabled,
+  getShops,
+} from "./model/shops.slice";

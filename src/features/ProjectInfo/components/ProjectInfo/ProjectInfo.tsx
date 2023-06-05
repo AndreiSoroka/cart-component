@@ -28,7 +28,7 @@ const ProjectInfo = memo(() => {
       </a>
     </li>
   ));
-  return <ul className={projectInfoStyles["project-info"]}>{links}</ul>;
+  return <ul className={projectInfoStyles.list}>{links}</ul>;
 });
 
 export default ProjectInfo;

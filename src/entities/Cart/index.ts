@@ -1,1 +1,5 @@
-export { default as useCartStore } from "@/entities/Cart/lib/hooks/useCartStore";
+export {
+  selectCartProducts,
+  addItemToCart,
+  removeItemFromCart,
+} from "./model/cart.slice";

@@ -1,0 +1,67 @@
+openapi: 3.0.0
+info:
+  title: Shops API
+  version: 1.0.0
+paths:
+  /api/shops.json:
+    get:
+      summary: Get shops
+      operationId: getShops
+      tags:
+        - Shops
+      responses:
+        200:
+          description: Get shops response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shops'
+        4XX:
+          description: Any error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        5XX:
+          description: Any error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Shop:
+      type: object
+      required:
+        - id
+        - name
+        - sortOrder
+      properties:
+        id:
+          type: string
+          description: The unique identifier for a shop
+          example: maxima
+        name:
+          type: string
+          description: The name of the shop
+          example: Maxima
+        sortOrder:
+          type: integer
+          description: The sort order of the shop
+          example: 3
+    Shops:
+      type: array
+      items:
+        $ref: '#/components/schemas/Shop'
+    Error:
+      description: Error example
+      type: object
+      properties:
+        errorId:
+          description: Error id
+          type: string
+          example: f5d54065-eb4d-46fd-8f9c-b9833d6546a3
+        errorMessage:
+          description: Default error message
+          type: string
+          example: something wrong

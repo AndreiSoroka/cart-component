@@ -1,6 +1,8 @@
 import { Products } from "@/features/Products";
 import { renderWithProviders } from "@/shared/config/jest/renderWithProviders";
 import { fireEvent, waitFor } from "@testing-library/react";
+import { mockShopStateOneItem } from "@/entities/Shops/model/mocks/shops.mock";
+import { mockCartState } from "@/entities/Cart/model/mocks/cart.mock";
 
 describe("Products", () => {
   it("Should render Products without crashing", () => {
@@ -11,32 +13,8 @@ describe("Products", () => {
   it("Should display a list of products", async () => {
     const { container } = renderWithProviders(<Products />, {
       preloadedState: {
-        shops: {
-          isLoading: false,
-          list: [
-            {
-              id: "shop1",
-              name: "Shop 1",
-              sortOrder: 1,
-            },
-          ],
-          error: "",
-          isLoaded: true,
-        },
-        cart: {
-          list: [
-            {
-              id: "product1",
-              productName: "Product 1",
-              shopId: "shop1",
-            },
-            {
-              id: "product2",
-              productName: "Product 2",
-              shopId: "shop1",
-            },
-          ],
-        },
+        shops: mockShopStateOneItem(),
+        cart: mockCartState(),
       },
     });
 
@@ -51,32 +29,8 @@ describe("Products", () => {
   it("Should remove a product when 'Remove' button is clicked", async () => {
     const { container, store } = renderWithProviders(<Products />, {
       preloadedState: {
-        shops: {
-          isLoading: false,
-          list: [
-            {
-              id: "shop1",
-              name: "Shop 1",
-              sortOrder: 1,
-            },
-          ],
-          error: "",
-          isLoaded: true,
-        },
-        cart: {
-          list: [
-            {
-              id: "product1",
-              productName: "Product 1",
-              shopId: "shop1",
-            },
-            {
-              id: "product2",
-              productName: "Product 2",
-              shopId: "shop2",
-            },
-          ],
-        },
+        shops: mockShopStateOneItem(),
+        cart: mockCartState(),
       },
     });
 

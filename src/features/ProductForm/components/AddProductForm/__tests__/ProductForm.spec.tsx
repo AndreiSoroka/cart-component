@@ -1,6 +1,10 @@
 import { ProductForm } from "@/features/ProductForm";
 import { renderWithProviders } from "@/shared/config/jest/renderWithProviders";
 import { fireEvent } from "@testing-library/react";
+import {
+  mockShopStateEmpty,
+  mockShopStateOneItem,
+} from "@/entities/Shops/model/mocks/shops.mock";
 
 describe("ProductForm", () => {
   it("Should render ProductForm without crashing", () => {
@@ -11,18 +15,7 @@ describe("ProductForm", () => {
   it("Should add a new product", () => {
     const { container, store } = renderWithProviders(<ProductForm />, {
       preloadedState: {
-        shops: {
-          isLoading: false,
-          list: [
-            {
-              id: "shop1",
-              name: "Shop 1",
-              sortOrder: 1,
-            },
-          ],
-          error: "",
-          isLoaded: true,
-        },
+        shops: mockShopStateOneItem(),
       },
     });
 
@@ -50,10 +43,8 @@ describe("ProductForm", () => {
     const { container } = renderWithProviders(<ProductForm />, {
       preloadedState: {
         shops: {
-          isLoading: true,
-          list: [],
-          error: "",
-          isLoaded: true,
+          ...mockShopStateEmpty(),
+          status: "pending",
         },
       },
     });

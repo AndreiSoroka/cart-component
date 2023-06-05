@@ -1,31 +1,26 @@
-import RowStyle from "./productRow.module.scss";
+import productRowStyle from "./productRow.module.scss";
 import type ProductRowProps from "@/features/Products/components/ProductRow/types/ProductRowProps.type";
 import { RemoveLink } from "@/shared/components/RemoveLink/RemoveLink";
 import { memo } from "react";
 
 const ProductRow = memo(
-  ({ product, shopName, onRemove, elementKey = 0, id }: ProductRowProps) => {
-    const rowStyles =
-      elementKey % 2
-        ? `${RowStyle["product-row"]} ${RowStyle["product-row--odd-element"]}`
-        : RowStyle["product-row"];
-
+  ({ product, shopName, onRemove, id }: ProductRowProps) => {
     return (
-      <div className={rowStyles} data-testid="productRow">
-        <div className={RowStyle["product-row__elements"]}>
+      <div className={productRowStyle.row} data-testid="productRow">
+        <div className={productRowStyle.elements}>
           <div
-            className={RowStyle["product-row__text"]}
+            className={productRowStyle.text}
             data-testid="productRow__productName"
           >
             {product}
           </div>
           <div
-            className={RowStyle["product-row__text"]}
+            className={productRowStyle.text}
             data-testid="productRow__shopName"
           >
             {shopName}
           </div>
-          <div className={RowStyle["product-row__actions"]}>
+          <div className={productRowStyle.actions}>
             <RemoveLink
               label="Delete"
               onClick={() => onRemove?.(id)}

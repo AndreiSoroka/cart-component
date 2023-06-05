@@ -2,19 +2,8 @@ import { Provider } from "react-redux";
 import type { Meta, StoryFn } from "@storybook/react";
 import ProductForm from "./ProductForm";
 import { setupStore } from "@/store";
-
-const mockShopState = {
-  isLoading: false,
-  isLoaded: true,
-  list: [
-    { id: "1", name: "Shop 1", sortOrder: 1 },
-    { id: "2", name: "Shop 2", sortOrder: 2 },
-  ],
-  error: "",
-};
-const mockCartState = {
-  list: [],
-};
+import { mockShopState } from "@/entities/Shops/model/mocks/shops.mock";
+import { mockCartStateEmpty } from "@/entities/Cart/model/mocks/cart.mock";
 
 const meta: Meta<typeof ProductForm> = {
   title: "Features/ProductForm/ProductForm",
@@ -26,8 +15,8 @@ export default meta;
 
 export const Default: StoryFn = (args) => {
   const store = setupStore({
-    shops: mockShopState,
-    cart: mockCartState,
+    shops: mockShopState(),
+    cart: mockCartStateEmpty(),
   });
 
   return (
@@ -39,8 +28,8 @@ export const Default: StoryFn = (args) => {
 
 export const Loading: StoryFn = (args) => {
   const store = setupStore({
-    shops: { ...mockShopState, isLoading: true },
-    cart: mockCartState,
+    shops: { ...mockShopState(), status: "pending" },
+    cart: mockCartStateEmpty(),
   });
 
   return (

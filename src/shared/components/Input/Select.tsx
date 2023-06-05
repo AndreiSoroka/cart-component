@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+import classNames from "classnames";
 import type SelectProps from "./types/SelectProps.type";
 import InputStyle from "./input.module.scss";
 
@@ -25,7 +26,7 @@ export const Select = memo(
       <select
         value={defaultValue}
         onChange={handleChange}
-        className={`${InputStyle.input} ${InputStyle.input__select}`}
+        className={classNames(InputStyle.input, InputStyle.select)}
         required={required}
         data-testid={dataTestId}
       >

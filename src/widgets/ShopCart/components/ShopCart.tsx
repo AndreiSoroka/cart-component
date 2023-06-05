@@ -5,7 +5,7 @@ import { Products } from "@/features/Products";
 import Card from "@/shared/components/Card/Card";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getShops } from "@/entities/Shops/api/getShops.api";
+import { getShops } from "@/entities/Shops";
 import type { AppDispatch } from "@/store";
 import environmentMeta from "@/shared/const/environment.meta";
 import CardContent from "@/shared/components/Card/CardContent";
@@ -13,13 +13,13 @@ import CardContent from "@/shared/components/Card/CardContent";
 const ShopCart = () => {
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
-    if (environmentMeta.CLIENT && !environmentMeta.STORYBOOK) {
+    if (!environmentMeta.STORYBOOK) {
       dispatch(getShops());
     }
   }, [dispatch]);
 
   return (
-    <div className={shopCartStyles["shop-cart"]}>
+    <div className={shopCartStyles.wrapper}>
       <Card>
         <CardContent>
           <ProductForm />

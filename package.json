@@ -23,11 +23,13 @@
     "test": "run-s test:unit test:e2e",
     "test:unit": "jest",
     "test:e2e": "playwright test --reporter=list",
-    "prepare": "husky install",
-    "storybook": "storybook dev -p 6006"
+    "storybook": "storybook dev -p 6006",
+    "generate:api": "swagger-typescript-api -p ./public/openapi/openapi.yaml -o ./src/shared/api -n api.generated.ts",
+    "prepare": "husky install; yarn generate:api"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "classnames": "^2.3.2",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -70,6 +72,7 @@
     "storybook": "^7.0.12",
     "stylelint": "^15.6.2",
     "stylelint-config-standard-scss": "^9.0.0",
+    "swagger-typescript-api": "^12.0.4",
     "typescript": "^5.0.4",
     "vite": "^4.3.2"
   }

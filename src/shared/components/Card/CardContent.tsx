@@ -6,7 +6,7 @@ type CardProps = {
 };
 
 const CardContent = ({ children }: CardProps) => {
-  return <div className={CartStyle["card-content"]}>{children}</div>;
+  return <div className={CartStyle.content}>{children}</div>;
 };
 
 export default CardContent;

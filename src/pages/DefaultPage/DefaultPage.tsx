@@ -4,7 +4,7 @@ import { ProjectInfo } from "@/features/ProjectInfo";
 
 const DefaultPage = () => {
   return (
-    <div className={defaultPageStyles["default-page"]}>
+    <div className={defaultPageStyles.wrapper}>
       <ShopCart />
       <ProjectInfo />
     </div>

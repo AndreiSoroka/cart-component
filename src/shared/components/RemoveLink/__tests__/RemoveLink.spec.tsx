@@ -5,17 +5,19 @@ import { RemoveLink } from "../RemoveLink";
 describe("Button", () => {
   it("renders the label", () => {
     const text = "Click me!";
-    const element = render(<RemoveLink label={text} />);
+    const { container } = render(
+      <RemoveLink label={text} dataTestId="button" />
+    );
     const textContent =
-      element.baseElement.querySelector("span")?.textContent || "";
+      container.querySelector("[data-testid=button]")?.textContent || "";
     expect(textContent).toBe(text);
   });
   it("handles click events", () => {
     const handleClick = jest.fn();
-    const element = render(
-      <RemoveLink label="Click me" onClick={handleClick} />
+    const { container } = render(
+      <RemoveLink label="Click me" onClick={handleClick} dataTestId="button" />
     );
-    const $el = element.baseElement.querySelector("span") as Element;
+    const $el = container.querySelector("[data-testid=button]") as Element;
     fireEvent.click($el);
     expect(handleClick).toHaveBeenCalledTimes(1);
   });

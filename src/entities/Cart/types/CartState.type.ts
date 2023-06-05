@@ -1,4 +1,4 @@
-import type Cart from "@/entities/Cart/types/Cart.type";
+import type Cart from "@/entities/Cart/types/CartItem.type";
 
 type CartState = {
   list: Cart[];

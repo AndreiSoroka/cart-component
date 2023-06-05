@@ -1,10 +1,9 @@
+import type { EntityState } from "@reduxjs/toolkit";
 import type Shop from "@/entities/Shops/types/Shop.type";
 
-type ShopsState = {
-  list: Shop[];
-  isLoading: boolean;
+type ShopsState = EntityState<Shop> & {
   error: string;
-  isLoaded: boolean;
+  status: "idle" | "pending" | "success" | "error";
 };
 
 export default ShopsState;

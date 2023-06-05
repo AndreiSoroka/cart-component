@@ -1,6 +1,6 @@
 import { describe, expect, it } from "@jest/globals";
 import isCartItem from "../isCartItem.guard";
-import type CartItem from "@/entities/Cart/types/Cart.type";
+import type CartItem from "@/entities/Cart/types/CartItem.type";
 
 describe("isShopItem function", () => {
   it("should return true for valid ShopItem", () => {

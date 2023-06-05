@@ -1,14 +1,17 @@
-import { useCartStore } from "@/entities/Cart";
-import { useShopsStore } from "@/entities/Shops";
-import { useEffect, useMemo, useState } from "react";
-import createMapFromShops from "@/features/Products/lib/helpers/createMapFromShops";
+import { useCallback, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ProductRow from "@/features/Products/components/ProductRow/ProductRow";
+import { selectShopsList } from "@/entities/Shops";
+import { removeItemFromCart, selectCartProducts } from "@/entities/Cart";
 
 const Products = () => {
-  const { list: products, removeItemFromCart } = useCartStore();
-  const { list: shops } = useShopsStore();
-
-  const shopsMap = useMemo(() => createMapFromShops(shops), [shops]);
+  const dispatch = useDispatch();
+  const products = useSelector(selectCartProducts);
+  const shops = useSelector(selectShopsList.selectEntities);
+  const handleRemove = useCallback(
+    (id: string) => dispatch(removeItemFromCart(id)),
+    [dispatch]
+  );
 
   const [isClient, setIsClient] = useState(false);
 
@@ -22,14 +25,13 @@ const Products = () => {
   }
   return (
     <div>
-      {products.map((item, index) => (
+      {products.map((item) => (
         <ProductRow
           key={item.id}
           id={item.id}
-          elementKey={index}
-          shopName={shopsMap[item.shopId] || "..."}
+          shopName={shops[item.shopId]?.name || "..."}
           product={item.productName}
-          onRemove={removeItemFromCart}
+          onRemove={handleRemove}
         />
       ))}
     </div>

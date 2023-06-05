@@ -5,6 +5,29 @@
 - Playwright report: https://cart-component.andreisoroka.com/playwright-report/
 - Storybook: https://cart-component.andreisoroka.com/storybook/
 
+<details>
+    <summary>Demo: React memo</summary>
+
+    Highlight updates when components render:
+
+    ![demoMemo.gif](doc%2FdemoMemo.gif)
+</details>
+
+<details>
+    <summary>Demo: Figma update</summary>
+    
+    I am not a designer, yet I possess skills in working with Figma.
+    I had the honor of adding structure to the Figma file.
+    
+    Add components:
+    ![demoFigmaComponents.png](doc%2FdemoFigmaComponents.png)
+
+    X-Ray (was/became):
+    ![demoFigmaXRay.png](doc%2FdemoFigmaXRay.png)
+    
+    You can download: [Figma file](doc%2FShopping%20card%20%28Remake%29.fig)
+</details>
+
 ## Table of Contents
 
 - [cart-component](#cart-component)
@@ -35,7 +58,6 @@ P.S. In the realm of development, I believe that good architecture should be sim
 The task at hand is indeed small and does not necessitate any complex structure.
 Nevertheless, I've taken the liberty of envisaging it as a sizable project,
 thereby employing an [FSD](https://feature-sliced.design/) approach.
-
 
 P.P.S. Let us not forget that a project's architecture is invariably a reflection of the team behind it.
 Thus, what we see here is a **hypothetical architecture**, illustrative of a possible design pathway,

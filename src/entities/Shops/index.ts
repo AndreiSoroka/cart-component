@@ -1,1 +1,5 @@
-export { selectShopsList, selectShopsDisabled } from "./model/shops.slice";
+export {
+  selectShopsList,
+  selectShopsDisabled,
+  getShops,
+} from "./model/shops.slice";

@@ -1,13 +1,16 @@
 import {
+  createAsyncThunk,
   createEntityAdapter,
   createSelector,
   createSlice,
 } from "@reduxjs/toolkit";
 import type ShopsState from "@/entities/Shops/types/ShopsState.type";
-import { getShops } from "@/entities/Shops/api/getShops.api";
+import getShopsApi from "@/entities/Shops/api/getShops.api";
 import type { RootState } from "@/store";
 import type Shop from "@/entities/Shops/types/Shop.type";
 import compareShopsByOrderAndName from "@/entities/Shops/lib/helpers/compareShopsByOrderAndName";
+
+export const getShops = createAsyncThunk("shops/getShops", getShopsApi);
 
 const shopsAdapter = createEntityAdapter<Shop>({
   sortComparer: compareShopsByOrderAndName,

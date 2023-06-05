@@ -5,7 +5,7 @@ import { Products } from "@/features/Products";
 import Card from "@/shared/components/Card/Card";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getShops } from "@/entities/Shops/api/getShops.api";
+import { getShops } from "@/entities/Shops";
 import type { AppDispatch } from "@/store";
 import environmentMeta from "@/shared/const/environment.meta";
 import CardContent from "@/shared/components/Card/CardContent";

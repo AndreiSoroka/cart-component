@@ -1,5 +1,5 @@
 import { describe, expect, it, beforeEach } from "@jest/globals";
-import { getShops } from "@/entities/Shops/api/getShops.api";
+import { getShops } from "@/entities/Shops";
 import { setupStore } from "@/store";
 import fetchMock from "jest-fetch-mock";
 

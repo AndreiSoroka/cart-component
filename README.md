@@ -6,26 +6,32 @@
 - Storybook: https://cart-component.andreisoroka.com/storybook/
 
 <details>
-    <summary>Demo: React memo</summary>
+<summary>Demo: React memo</summary>
 
-    Highlight updates when components render:
-
-    ![demoMemo.gif](doc%2FdemoMemo.gif)
+> Highlight updates when components render:
+> 
+> <img src="./doc/demoMemo.gif">
 </details>
 
 <details>
-    <summary>Demo: Figma update</summary>
-    
-    I am not a designer, yet I possess skills in working with Figma.
-    I had the honor of adding structure to the Figma file.
-    
-    Add components:
-    ![demoFigmaComponents.png](doc%2FdemoFigmaComponents.png)
+<summary>Demo: Figma update</summary>
 
-    X-Ray (was/became):
-    ![demoFigmaXRay.png](doc%2FdemoFigmaXRay.png)
-    
-    You can download: [Figma file](doc%2FShopping%20card%20%28Remake%29.fig)
+> I am not a designer, yet I possess skills in working with Figma.
+> I had the honor of adding structure to the Figma file.
+> 
+> Added components:
+> 
+> <img src="./doc/demoFigmaComponents.png">
+> 
+> With variables:
+> 
+> <img src="./doc/demoFigmaVariables.png">
+> 
+> X-Ray (was/became):
+> 
+> <img src="./doc/demoFigmaXRay.png">
+> 
+> You can download: [Updated Figma file](doc%2FShopping%20card%20%28Remake%29.fig)
 </details>
 
 ## Table of Contents

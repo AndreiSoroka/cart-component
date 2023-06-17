@@ -16,7 +16,7 @@ test.describe("Create and remove product", () => {
     expect(await page.locator('[data-testid="productRow"]').count()).toBe(1);
     const $productName = $productRow.getByTestId("productRow__productName");
     const $shopName = $productRow.getByTestId("productRow__shopName");
-    const $removeLink = $productRow.getByTestId("productRow__removeLink");
+    const $removeLink = $productRow.getByTestId("productContainer__removeLink");
     await expect($productName).toHaveText("My Product");
     await expect($shopName).toHaveText("Rimi");
 

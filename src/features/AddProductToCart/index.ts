@@ -1,1 +1,1 @@
-export { default as AddProductToCart } from "./ui/AddProductForm/AddProductToCart.tsx";
+export { default as AddProductToCart } from "./ui/AddProductToCart/AddProductToCart.tsx";

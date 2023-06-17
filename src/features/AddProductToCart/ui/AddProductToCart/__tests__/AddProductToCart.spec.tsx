@@ -1,4 +1,4 @@
-import AddProductToCart from "@/features/AddProductToCart/ui/AddProductForm/AddProductToCart.tsx";
+import AddProductToCart from "@/features/AddProductToCart/ui/AddProductToCart/AddProductToCart.tsx";
 import { renderWithProviders } from "@/shared/config/jest/renderWithProviders";
 import { fireEvent } from "@testing-library/react";
 import {

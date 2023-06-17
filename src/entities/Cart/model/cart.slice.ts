@@ -1,10 +1,11 @@
 import { createSlice, nanoid, type PayloadAction } from "@reduxjs/toolkit";
-import type CartState from "@/entities/Cart/types/CartState.type";
+// local
+import type CartState from "../types/CartState.type";
+import type AddItemToCartPayloadType from "../types/AddItemToCartPayload.type";
 import {
   getCartFromStorage,
   setCartToStorage,
-} from "@/entities/Cart/lib/helpers/cartStorage";
-import type AddItemToCartPayloadType from "@/entities/Cart/types/AddItemToCartPayload.type";
+} from "../lib/helpers/cartStorage";
 
 const initialState: CartState = {
   list: getCartFromStorage([]),

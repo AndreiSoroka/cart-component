@@ -1,5 +1,5 @@
 import type CartState from "@/entities/Cart/types/CartState.type";
-import isCartItems from "@/entities/Cart/guards/isCartItems.guard";
+import isCartItems from "@/entities/Cart/lib/guards/isCartItems.guard";
 import logger from "@/shared/lib/logger/logger";
 
 const KEY = "cartStore/list";

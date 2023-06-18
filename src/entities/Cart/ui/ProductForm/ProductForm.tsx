@@ -4,7 +4,7 @@ import { Input } from "@/shared/ui/Input/Input";
 import { Select } from "@/shared/ui/Input/Select";
 import Button from "@/shared/ui/Button/Button";
 // local
-import type ProductFormBodyProps from "./types/ProductFormBodyProps.type.ts";
+import type ProductFormProps from "./types/ProductFormProps.type.ts";
 import ProductFormStyle from "./productForm.module.scss";
 
 const ProductForm = ({
@@ -12,7 +12,7 @@ const ProductForm = ({
   isDisabled,
   options,
   onSubmit,
-}: ProductFormBodyProps) => {
+}: ProductFormProps) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [productName, setProductName] = useState("");
   const [shopId, setShopId] = useState("");
@@ -29,7 +29,7 @@ const ProductForm = ({
     event.preventDefault();
     onSubmit({
       productName,
-      shopId: shopId,
+      shopId,
     });
     setProductName("");
     inputRef.current?.focus();

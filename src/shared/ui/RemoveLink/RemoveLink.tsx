@@ -1,5 +1,5 @@
-import RemoveLinkStyle from "./removeLink.module.scss";
 import type RemoveLinkProps from "./types/RemoveLinkProps.type";
+import RemoveLinkStyle from "./removeLink.module.scss";
 
 export const RemoveLink = ({ label, onClick, dataTestId }: RemoveLinkProps) => {
   return (

@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 // shared
 import { RemoveLink } from "@/shared/ui/RemoveLink/RemoveLink.tsx";
@@ -12,12 +11,13 @@ const RemoveProductFromCart = ({
   dataTestId,
 }: RemoveProductFromCartProps) => {
   const dispatch = useDispatch();
-  const handleRemove = useCallback(() => {
-    dispatch(removeItemFromCart(id));
-  }, [dispatch, id]);
 
   return (
-    <RemoveLink label="Delete" onClick={handleRemove} dataTestId={dataTestId} />
+    <RemoveLink
+      label="Delete"
+      onClick={() => dispatch(removeItemFromCart(id))}
+      dataTestId={dataTestId}
+    />
   );
 };
 

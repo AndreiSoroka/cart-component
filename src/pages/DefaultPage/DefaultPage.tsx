@@ -1,13 +1,13 @@
-import defaultPageStyles from "./defaultPage.module.scss";
-import { ShopCart } from "@/widgets/ShopCart";
-import { ProjectInfo } from "@/features/ProjectInfo";
+import PageWrapper from "@/shared/ui/PageWrapper/PageWrapper.tsx";
+import { ShopCartWidget } from "@/widgets/ShopCart";
+import { ProjectInfo } from "@/entities/ProjectInfo";
 
 const DefaultPage = () => {
   return (
-    <div className={defaultPageStyles.wrapper}>
-      <ShopCart />
+    <PageWrapper>
+      <ShopCartWidget />
       <ProjectInfo />
-    </div>
+    </PageWrapper>
   );
 };
 

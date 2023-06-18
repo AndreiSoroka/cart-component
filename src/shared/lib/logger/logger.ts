@@ -20,7 +20,7 @@ const logger = (...args: Parameters<typeof getError>) => {
   // todo: send error to server (sentry, etc)
 
   if (environmentMeta.MODE === "development") {
-    console.error(error);
+    console.error(error, environmentMeta);
   }
 };
 

@@ -1,6 +1,6 @@
 import { describe, expect, it, beforeEach } from "@jest/globals";
 import { setupStore } from "@/store";
-import cartSlice from "../cart.slice";
+import { addItemToCart, removeItemFromCart } from "../cart.slice";
 import type AddItemToCartPayloadType from "@/entities/Cart/types/AddItemToCartPayload.type";
 
 const MockItemCart1: AddItemToCartPayloadType = {
@@ -25,7 +25,7 @@ describe("Cart reducer", () => {
   });
 
   it("should handle addItemToCart", () => {
-    store.dispatch(cartSlice.actions.addItemToCart(MockItemCart1));
+    store.dispatch(addItemToCart(MockItemCart1));
     const { list } = store.getState().cart;
     expect(list).toHaveLength(1);
     const [cartItem] = list;
@@ -37,11 +37,11 @@ describe("Cart reducer", () => {
   });
 
   it("should handle removeItemFromCart", () => {
-    store.dispatch(cartSlice.actions.addItemToCart(MockItemCart1));
-    store.dispatch(cartSlice.actions.addItemToCart(MockItemCart2));
+    store.dispatch(addItemToCart(MockItemCart1));
+    store.dispatch(addItemToCart(MockItemCart2));
     const { list: initialList } = store.getState().cart;
     const [itemToRemove] = initialList;
-    store.dispatch(cartSlice.actions.removeItemFromCart(itemToRemove.id));
+    store.dispatch(removeItemFromCart(itemToRemove.id));
     const { list: updatedList } = store.getState().cart;
     expect(updatedList).toHaveLength(1);
     const [remainingItem] = updatedList;

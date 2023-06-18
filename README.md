@@ -234,6 +234,11 @@ yarn build-jest
 
 ### E2E Testing
 
+Install dependencies for Playwright.
+```shell
+npx playwright install
+```
+
 Run end-to-end tests using Playwright.
 
 ```shell

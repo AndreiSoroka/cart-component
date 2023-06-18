@@ -1,1 +1,1 @@
-export { default as ShopCart } from "@/widgets/ShopCart/components/ShopCart";
+export { default as ShopCartWidget } from "./ui/ShopCartWidget/ShopCartWidget.tsx";
